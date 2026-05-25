@@ -8,6 +8,20 @@
 
 ---
 
+## Kurulum
+
+```bash
+npm install -g noteflow-mcp
+```
+
+Ya da kurulum yapmadan direkt çalıştır (npx her seferinde güncel versiyonu indirir):
+
+```bash
+npx noteflow-mcp --help
+```
+
+---
+
 ## 3 Adımda Başlangıç
 
 ### 1 — Token al
