@@ -1,115 +1,358 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="tr" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoteFlow — Özellik Listesi (Tam Detay) &mdash; Noteflow 1.0 belgelendirmesi</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NoteFlow — Özellik Listesi (Tam Detay) &#8212; Noteflow MCP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=a2693998"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'features';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=c9a0749e"></script>
-      <script src="_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-      <script src="_static/translations.js?v=b0f24d8d"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Dizin" href="genindex.html" />
-    <link rel="search" title="Ara" href="search.html" />
-    <link rel="next" title="NoteFlow — Teknik Mimari" href="architecture.html" />
-    <link rel="prev" title="Noteflow Dokümantasyonu" href="index.html" /> 
-</head>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Noteflow
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Belgeleri arayın" aria-label="Belgeleri arayın" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">İçindekiler</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">NoteFlow — Özellik Listesi (Tam Detay)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#notlarim-my-notes">1. NOTLARIM (My Notes)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#metin-notu">1.1 Metin Notu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#canvas-notu-sonsuz-beyaz-tahta">1.2 Canvas Notu (Sonsuz Beyaz Tahta)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ses-notu-voice-note">1.3 Ses Notu (Voice Note)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gorsel-not-image-note">1.4 Görsel Not (Image Note)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cizim-notu-drawing-note">1.5 Çizim Notu (Drawing Note)</a></li>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Noteflow MCP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Noteflow MCP Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature-flags.html">Feature Flags</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#projeler-projects">2. PROJELER (Projects)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#proje-yonetimi">2.1 Proje Yönetimi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proje-ici-notlar">2.2 Proje İçi Notlar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proje-gorunumleri">2.3 Proje Görünümleri</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tool Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tool Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/projects.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/folders.html">Folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/tasks.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/ai.html">AI Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/voice.html">Voice</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#sayfa-dokumanlari-pages">3. SAYFA DOKÜMANLARI (Pages)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cok-sayfali-dokuman">3.1 Çok Sayfalı Doküman</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#sunum-presentation">4. SUNUM (Presentation)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#slayt-editoru">4.1 Slayt Editörü</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#arama-filtreleme">5. ARAMA &amp; FİLTRELEME</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#organizasyon">6. ORGANİZASYON</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gorunum-kisisellestirme">7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#veri-depolama-local">8. VERİ &amp; DEPOLAMA (Local)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#klavye-kisayollari">9. KLAVYE KISAYOLLARI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ekstra-akilli-ozellikler">10. EKSTRA &amp; AKILLI ÖZELLİKLER</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">NoteFlow — Teknik Mimari</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_model.html">NoteFlow — Veri Modeli</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Noteflow</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">NoteFlow — Özellik Listesi (Tam Detay)</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/features.md.txt" rel="nofollow"> Sayfa kaynağını görüntüle</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/features.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NoteFlow — Özellik Listesi (Tam Detay)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notlarim-my-notes">1. NOTLARIM (My Notes)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metin-notu">1.1 Metin Notu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canvas-notu-sonsuz-beyaz-tahta">1.2 Canvas Notu (Sonsuz Beyaz Tahta)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ses-notu-voice-note">1.3 Ses Notu (Voice Note)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gorsel-not-image-note">1.4 Görsel Not (Image Note)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cizim-notu-drawing-note">1.5 Çizim Notu (Drawing Note)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projeler-projects">2. PROJELER (Projects)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proje-yonetimi">2.1 Proje Yönetimi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proje-ici-notlar">2.2 Proje İçi Notlar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proje-gorunumleri">2.3 Proje Görünümleri</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sayfa-dokumanlari-pages">3. SAYFA DOKÜMANLARI (Pages)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cok-sayfali-dokuman">3.1 Çok Sayfalı Doküman</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunum-presentation">4. SUNUM (Presentation)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slayt-editoru">4.1 Slayt Editörü</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arama-filtreleme">5. ARAMA &amp; FİLTRELEME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizasyon">6. ORGANİZASYON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gorunum-kisisellestirme">7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veri-depolama-local">8. VERİ &amp; DEPOLAMA (Local)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klavye-kisayollari">9. KLAVYE KISAYOLLARI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-akilli-ozellikler">10. EKSTRA &amp; AKILLI ÖZELLİKLER</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="noteflow-ozellik-listesi-tam-detay">
-<h1>NoteFlow — Özellik Listesi (Tam Detay)<a class="headerlink" href="#noteflow-ozellik-listesi-tam-detay" title="Link to this heading"></a></h1>
+<h1>NoteFlow — Özellik Listesi (Tam Detay)<a class="headerlink" href="#noteflow-ozellik-listesi-tam-detay" title="Link to this heading">#</a></h1>
 <section id="notlarim-my-notes">
-<h2>1. NOTLARIM (My Notes)<a class="headerlink" href="#notlarim-my-notes" title="Link to this heading"></a></h2>
+<h2>1. NOTLARIM (My Notes)<a class="headerlink" href="#notlarim-my-notes" title="Link to this heading">#</a></h2>
 <section id="metin-notu">
-<h3>1.1 Metin Notu<a class="headerlink" href="#metin-notu" title="Link to this heading"></a></h3>
+<h3>1.1 Metin Notu<a class="headerlink" href="#metin-notu" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Zengin metin editörü (bold, italic, underline, strikethrough)</p></li>
 <li><p>Başlıklar (H1, H2, H3)</p></li>
@@ -138,7 +381,7 @@
 </ul>
 </section>
 <section id="canvas-notu-sonsuz-beyaz-tahta">
-<h3>1.2 Canvas Notu (Sonsuz Beyaz Tahta)<a class="headerlink" href="#canvas-notu-sonsuz-beyaz-tahta" title="Link to this heading"></a></h3>
+<h3>1.2 Canvas Notu (Sonsuz Beyaz Tahta)<a class="headerlink" href="#canvas-notu-sonsuz-beyaz-tahta" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sonsuz kaydırılabilir canvas (pan + zoom)</p></li>
 <li><p>Serbest el çizimi (smooth curves)</p></li>
@@ -161,7 +404,7 @@
 </ul>
 </section>
 <section id="ses-notu-voice-note">
-<h3>1.3 Ses Notu (Voice Note)<a class="headerlink" href="#ses-notu-voice-note" title="Link to this heading"></a></h3>
+<h3>1.3 Ses Notu (Voice Note)<a class="headerlink" href="#ses-notu-voice-note" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Tarayıcı mikrofonu ile kayıt (MediaRecorder API)</p></li>
 <li><p>Canlı ses dalgası animasyonu (waveform)</p></li>
@@ -178,7 +421,7 @@
 </ul>
 </section>
 <section id="gorsel-not-image-note">
-<h3>1.4 Görsel Not (Image Note)<a class="headerlink" href="#gorsel-not-image-note" title="Link to this heading"></a></h3>
+<h3>1.4 Görsel Not (Image Note)<a class="headerlink" href="#gorsel-not-image-note" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Resim yükleme (dosya seç veya sürükle-bırak)</p></li>
 <li><p>Clipboard’dan yapıştırma (Ctrl+V)</p></li>
@@ -191,7 +434,7 @@
 </ul>
 </section>
 <section id="cizim-notu-drawing-note">
-<h3>1.5 Çizim Notu (Drawing Note)<a class="headerlink" href="#cizim-notu-drawing-note" title="Link to this heading"></a></h3>
+<h3>1.5 Çizim Notu (Drawing Note)<a class="headerlink" href="#cizim-notu-drawing-note" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sadece çizime odaklı tam ekran canvas</p></li>
 <li><p>Kalem aracı (smooth freehand)</p></li>
@@ -205,9 +448,9 @@
 </section>
 <hr class="docutils" />
 <section id="projeler-projects">
-<h2>2. PROJELER (Projects)<a class="headerlink" href="#projeler-projects" title="Link to this heading"></a></h2>
+<h2>2. PROJELER (Projects)<a class="headerlink" href="#projeler-projects" title="Link to this heading">#</a></h2>
 <section id="proje-yonetimi">
-<h3>2.1 Proje Yönetimi<a class="headerlink" href="#proje-yonetimi" title="Link to this heading"></a></h3>
+<h3>2.1 Proje Yönetimi<a class="headerlink" href="#proje-yonetimi" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Yeni proje oluşturma (ad, renk, ikon, açıklama)</p></li>
 <li><p>Proje silme / arşivleme</p></li>
@@ -221,7 +464,7 @@
 </ul>
 </section>
 <section id="proje-ici-notlar">
-<h3>2.2 Proje İçi Notlar<a class="headerlink" href="#proje-ici-notlar" title="Link to this heading"></a></h3>
+<h3>2.2 Proje İçi Notlar<a class="headerlink" href="#proje-ici-notlar" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Proje altında tüm not tipleri (metin, canvas, ses, görsel, çizim, sunum, sayfa)</p></li>
 <li><p>Proje içi klasörler / alt klasörler</p></li>
@@ -234,7 +477,7 @@
 </ul>
 </section>
 <section id="proje-gorunumleri">
-<h3>2.3 Proje Görünümleri<a class="headerlink" href="#proje-gorunumleri" title="Link to this heading"></a></h3>
+<h3>2.3 Proje Görünümleri<a class="headerlink" href="#proje-gorunumleri" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Liste görünümü</p></li>
 <li><p>Izgara (grid/kart) görünümü</p></li>
@@ -247,9 +490,9 @@
 </section>
 <hr class="docutils" />
 <section id="sayfa-dokumanlari-pages">
-<h2>3. SAYFA DOKÜMANLARI (Pages)<a class="headerlink" href="#sayfa-dokumanlari-pages" title="Link to this heading"></a></h2>
+<h2>3. SAYFA DOKÜMANLARI (Pages)<a class="headerlink" href="#sayfa-dokumanlari-pages" title="Link to this heading">#</a></h2>
 <section id="cok-sayfali-dokuman">
-<h3>3.1 Çok Sayfalı Doküman<a class="headerlink" href="#cok-sayfali-dokuman" title="Link to this heading"></a></h3>
+<h3>3.1 Çok Sayfalı Doküman<a class="headerlink" href="#cok-sayfali-dokuman" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Doküman içinde birden fazla sayfa</p></li>
 <li><p>Sayfa ekleme / silme / yeniden sıralama</p></li>
@@ -267,9 +510,9 @@
 </section>
 <hr class="docutils" />
 <section id="sunum-presentation">
-<h2>4. SUNUM (Presentation)<a class="headerlink" href="#sunum-presentation" title="Link to this heading"></a></h2>
+<h2>4. SUNUM (Presentation)<a class="headerlink" href="#sunum-presentation" title="Link to this heading">#</a></h2>
 <section id="slayt-editoru">
-<h3>4.1 Slayt Editörü<a class="headerlink" href="#slayt-editoru" title="Link to this heading"></a></h3>
+<h3>4.1 Slayt Editörü<a class="headerlink" href="#slayt-editoru" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Slayt ekleme / silme / kopyalama / yeniden sıralama</p></li>
 <li><p>Slayt şablonları (boş, başlık, içerik, resim+metin, vs.)</p></li>
@@ -289,7 +532,7 @@
 </section>
 <hr class="docutils" />
 <section id="arama-filtreleme">
-<h2>5. ARAMA &amp; FİLTRELEME<a class="headerlink" href="#arama-filtreleme" title="Link to this heading"></a></h2>
+<h2>5. ARAMA &amp; FİLTRELEME<a class="headerlink" href="#arama-filtreleme" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Global tam metin arama (tüm notlar)</p></li>
 <li><p>Filtreler: not tipi, tarih aralığı, etiket, proje, yıldızlı</p></li>
@@ -301,7 +544,7 @@
 </section>
 <hr class="docutils" />
 <section id="organizasyon">
-<h2>6. ORGANİZASYON<a class="headerlink" href="#organizasyon" title="Link to this heading"></a></h2>
+<h2>6. ORGANİZASYON<a class="headerlink" href="#organizasyon" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Etiketler (tags) — renkli, çoklu</p></li>
 <li><p>Klasörler / alt klasörler (iç içe)</p></li>
@@ -315,7 +558,7 @@
 </section>
 <hr class="docutils" />
 <section id="gorunum-kisisellestirme">
-<h2>7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME<a class="headerlink" href="#gorunum-kisisellestirme" title="Link to this heading"></a></h2>
+<h2>7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME<a class="headerlink" href="#gorunum-kisisellestirme" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Karanlık / açık tema (dark/light mode)</p></li>
 <li><p>Sistem temasına uyum (auto)</p></li>
@@ -330,7 +573,7 @@
 </section>
 <hr class="docutils" />
 <section id="veri-depolama-local">
-<h2>8. VERİ &amp; DEPOLAMA (Local)<a class="headerlink" href="#veri-depolama-local" title="Link to this heading"></a></h2>
+<h2>8. VERİ &amp; DEPOLAMA (Local)<a class="headerlink" href="#veri-depolama-local" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Tüm veri tarayıcı IndexedDB’de (Dexie.js)</p></li>
 <li><p>Otomatik yedekleme (JSON export)</p></li>
@@ -341,8 +584,8 @@
 </section>
 <hr class="docutils" />
 <section id="klavye-kisayollari">
-<h2>9. KLAVYE KISAYOLLARI<a class="headerlink" href="#klavye-kisayollari" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
+<h2>9. KLAVYE KISAYOLLARI<a class="headerlink" href="#klavye-kisayollari" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Kısayol</p></th>
 <th class="head"><p>İşlem</p></th>
@@ -381,10 +624,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <hr class="docutils" />
 <section id="ekstra-akilli-ozellikler">
-<h2>10. EKSTRA &amp; AKILLI ÖZELLİKLER<a class="headerlink" href="#ekstra-akilli-ozellikler" title="Link to this heading"></a></h2>
+<h2>10. EKSTRA &amp; AKILLI ÖZELLİKLER<a class="headerlink" href="#ekstra-akilli-ozellikler" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Not şablonları (boş, günlük, toplantı notu, proje planı)</p></li>
 <li><p>Hızlı not (floating quick-capture butonu)</p></li>
@@ -397,34 +641,117 @@
 </section>
 
 
-           </div>
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notlarim-my-notes">1. NOTLARIM (My Notes)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metin-notu">1.1 Metin Notu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canvas-notu-sonsuz-beyaz-tahta">1.2 Canvas Notu (Sonsuz Beyaz Tahta)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ses-notu-voice-note">1.3 Ses Notu (Voice Note)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gorsel-not-image-note">1.4 Görsel Not (Image Note)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cizim-notu-drawing-note">1.5 Çizim Notu (Drawing Note)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projeler-projects">2. PROJELER (Projects)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proje-yonetimi">2.1 Proje Yönetimi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proje-ici-notlar">2.2 Proje İçi Notlar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proje-gorunumleri">2.3 Proje Görünümleri</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sayfa-dokumanlari-pages">3. SAYFA DOKÜMANLARI (Pages)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cok-sayfali-dokuman">3.1 Çok Sayfalı Doküman</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunum-presentation">4. SUNUM (Presentation)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slayt-editoru">4.1 Slayt Editörü</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arama-filtreleme">5. ARAMA &amp; FİLTRELEME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizasyon">6. ORGANİZASYON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gorunum-kisisellestirme">7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veri-depolama-local">8. VERİ &amp; DEPOLAMA (Local)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klavye-kisayollari">9. KLAVYE KISAYOLLARI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstra-akilli-ozellikler">10. EKSTRA &amp; AKILLI ÖZELLİKLER</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Noteflow Dokümantasyonu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Önceki</a>
-        <a href="architecture.html" class="btn btn-neutral float-right" title="NoteFlow — Teknik Mimari" accesskey="n" rel="next">Sonraki <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Noteflow
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Noteflow.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Built with <a href='https://www.sphinx-doc.org'>Sphinx</a> using the <a href='https://sphinx-book-theme.readthedocs.io'>Book Theme</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2026, mahsumozer.</p>
   </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
-    kullanılarak <a href="https://readthedocs.org">Read the Docs</a> tarafından sağlanmasıyla oluşturuldu.
-   
-
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
