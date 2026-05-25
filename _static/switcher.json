@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Türkçe",
+    "version": "tr",
+    "url": "https://mahsumozer.github.io/noteflow-docs/"
+  },
+  {
+    "name": "English",
+    "version": "en",
+    "url": "https://mahsumozer.github.io/noteflow-docs/en/"
+  }
+]
