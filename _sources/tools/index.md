@@ -1,61 +1,107 @@
-# Tool Reference
+# Araçlar
 
-The Noteflow MCP server exposes **25 tools** organized into 8 categories. Each tool maps to a Firestore operation on your Noteflow data.
-
----
-
-## Tool naming convention
-
-All tools follow the pattern `noteflow_{category}_{action}`:
-
-- `noteflow_notes_list` — list notes
-- `noteflow_projects_get` — get a single project
-- `noteflow_tasks_create` — create a task
+Noteflow MCP, 25 araç sunar. Hepsi `NOTEFLOW_FEATURES` ile seçilebilir.
 
 ---
 
-## Tool annotations
+## Notlar (`notes:read`, `notes:write`)
 
-Each tool is annotated with hints that tell the AI client how to use it safely:
+Tüm not türlerini okuyup yönetebilirsin: metin, canvas, ses, görsel, çizim, sunum, sayfa, takvim.
 
-| Annotation | Meaning |
-|---|---|
-| `readOnlyHint: true` | The tool does not modify any data |
-| `destructiveHint: true` | The tool may permanently delete data |
+**Yapabileceklerin:**
+- Son notlarını listele, filtrele
+- Başlığa, içeriğe veya etikete göre ara
+- Yeni not oluştur, var olanı düzenle veya sil
+
+**Örnek promptlar:**
+> *"Bu hafta oluşturduğum notları göster"*
+> *"'fikir' etiketli tüm notlarımı listele"*
+> *"API entegrasyonu hakkında yeni bir not oluştur"*
 
 ---
 
-## Categories
+## Projeler (`projects:read`, `projects:write`)
 
-```{list-table}
-:header-rows: 1
-:widths: 20 10 70
+Kanban tarzı proje panolarına erişim.
 
-* - Category
-  - Count
-  - What you can do
-* - [Notes](notes.md)
-  - 6
-  - Full CRUD on all note types plus keyword search
-* - [Projects](projects.md)
-  - 4
-  - Browse and manage project boards
-* - [Folders](folders.md)
-  - 3
-  - Navigate folder hierarchy
-* - [Tags](tags.md)
-  - 2
-  - Explore and filter by tags
-* - [Tasks](tasks.md)
-  - 3
-  - Read and write Kanban tasks
-* - [AI](ai.md)
-  - 2
-  - Summaries and semantic search
-* - [Calendar](calendar.md)
-  - 3
-  - Read and add calendar entries
-* - [Voice](voice.md)
-  - 2
-  - Access transcripts of voice recordings
-```
+**Yapabileceklerin:**
+- Projelerini listele
+- Proje detaylarını ve sütunlarını gör
+- Yeni proje oluştur, güncelle
+
+**Örnek promptlar:**
+> *"Aktif projelerimi göster"*
+> *"'Mobile App' projesinin sütunlarını listele"*
+
+---
+
+## Klasörler (`folders:read`, `folders:write`)
+
+Proje içindeki klasör hiyerarşisi.
+
+**Yapabileceklerin:**
+- Klasörleri listele ve içeriklerini gör
+- Yeni klasör oluştur
+
+---
+
+## Etiketler (`tags:read`)
+
+**Yapabileceklerin:**
+- Tüm etiketleri listele
+- Belirli bir etikete sahip notları bul
+
+**Örnek promptlar:**
+> *"Hangi etiketlerim var?"*
+> *"'tasarım' etiketli notlarımı listele"*
+
+---
+
+## Görevler (`tasks:read`, `tasks:write`)
+
+Proje panolarındaki görev kartları.
+
+**Yapabileceklerin:**
+- Görevleri listele ve detaylarını gör
+- Yeni görev oluştur
+- Görevi farklı sütuna taşı
+
+**Örnek promptlar:**
+> *"Yapılacaklar sütunundaki görevleri göster"*
+> *"'Backend fix' görevini Tamamlandı sütununa taşı"*
+
+---
+
+## AI (`ai`)
+
+Noteflow'un AI özelliklerini kullan.
+
+**Yapabileceklerin:**
+- Bir notun AI özetini al
+- Semantik benzerlik araması yap (anlamsal, anahtar kelime değil)
+
+**Örnek promptlar:**
+> *"Bu notu özetle"*
+> *"'async programming' ile ilgili notlarımı bul"*
+
+---
+
+## Takvim (`calendar:read`, `calendar:write`)
+
+Takvim tipindeki notlardaki etkinlikler.
+
+**Yapabileceklerin:**
+- Takvim notlarındaki etkinlikleri listele
+- Yeni etkinlik ekle
+
+---
+
+## Ses Notları (`voice:read`)
+
+**Yapabileceklerin:**
+- Ses kayıtlarını listele
+- Transkripti olan notların içeriğini oku
+
+**Örnek promptlar:**
+> *"Ses notlarımı listele"*
+> *"API tasarımı hakkında konuştuğum ses kaydını bul"*

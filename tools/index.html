@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tool Reference &#8212; Noteflow MCP</title>
+    <title>Araçlar &#8212; Noteflow MCP</title>
   
   
   
@@ -49,8 +49,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tools/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Notes" href="notes.html" />
-    <link rel="prev" title="Feature Flags" href="../feature-flags.html" />
+    <link rel="next" title="Feature Flags" href="../feature-flags.html" />
+    <link rel="prev" title="Noteflow MCP" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -140,29 +140,10 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Noteflow MCP Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../authentication.html">Authentication</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Noteflow MCP</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Araçlar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../feature-flags.html">Feature Flags</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tool Reference</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tool Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projects.html">Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="folders.html">Folders</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ai.html">AI Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calendar.html">Calendar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voice.html">Voice</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 </ul>
 
     </div>
@@ -298,7 +279,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tool Reference</h1>
+    <h1>Araçlar</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -308,9 +289,14 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-naming-convention">Tool naming convention</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-annotations">Tool annotations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notlar-notes-read-notes-write">Notlar (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>, <code class="docutils literal notranslate"><span class="pre">notes:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projeler-projects-read-projects-write">Projeler (<code class="docutils literal notranslate"><span class="pre">projects:read</span></code>, <code class="docutils literal notranslate"><span class="pre">projects:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasorler-folders-read-folders-write">Klasörler (<code class="docutils literal notranslate"><span class="pre">folders:read</span></code>, <code class="docutils literal notranslate"><span class="pre">folders:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etiketler-tags-read">Etiketler (<code class="docutils literal notranslate"><span class="pre">tags:read</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gorevler-tasks-read-tasks-write">Görevler (<code class="docutils literal notranslate"><span class="pre">tasks:read</span></code>, <code class="docutils literal notranslate"><span class="pre">tasks:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-ai">AI (<code class="docutils literal notranslate"><span class="pre">ai</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#takvim-calendar-read-calendar-write">Takvim (<code class="docutils literal notranslate"><span class="pre">calendar:read</span></code>, <code class="docutils literal notranslate"><span class="pre">calendar:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ses-notlari-voice-read">Ses Notları (<code class="docutils literal notranslate"><span class="pre">voice:read</span></code>)</a></li>
 </ul>
             </nav>
         </div>
@@ -322,91 +308,120 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tool-reference">
-<h1>Tool Reference<a class="headerlink" href="#tool-reference" title="Link to this heading">#</a></h1>
-<p>The Noteflow MCP server exposes <strong>25 tools</strong> organized into 8 categories. Each tool maps to a Firestore operation on your Noteflow data.</p>
+  <section id="araclar">
+<h1>Araçlar<a class="headerlink" href="#araclar" title="Link to this heading">#</a></h1>
+<p>Noteflow MCP, 25 araç sunar. Hepsi <code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code> ile seçilebilir.</p>
 <hr class="docutils" />
-<section id="tool-naming-convention">
-<h2>Tool naming convention<a class="headerlink" href="#tool-naming-convention" title="Link to this heading">#</a></h2>
-<p>All tools follow the pattern <code class="docutils literal notranslate"><span class="pre">noteflow_{category}_{action}</span></code>:</p>
+<section id="notlar-notes-read-notes-write">
+<h2>Notlar (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>, <code class="docutils literal notranslate"><span class="pre">notes:write</span></code>)<a class="headerlink" href="#notlar-notes-read-notes-write" title="Link to this heading">#</a></h2>
+<p>Tüm not türlerini okuyup yönetebilirsin: metin, canvas, ses, görsel, çizim, sunum, sayfa, takvim.</p>
+<p><strong>Yapabileceklerin:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">noteflow_notes_list</span></code> — list notes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">noteflow_projects_get</span></code> — get a single project</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">noteflow_tasks_create</span></code> — create a task</p></li>
+<li><p>Son notlarını listele, filtrele</p></li>
+<li><p>Başlığa, içeriğe veya etikete göre ara</p></li>
+<li><p>Yeni not oluştur, var olanı düzenle veya sil</p></li>
+</ul>
+<p><strong>Örnek promptlar:</strong></p>
+<blockquote>
+<div><p><em>“Bu hafta oluşturduğum notları göster”</em>
+<em>“‘fikir’ etiketli tüm notlarımı listele”</em>
+<em>“API entegrasyonu hakkında yeni bir not oluştur”</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="projeler-projects-read-projects-write">
+<h2>Projeler (<code class="docutils literal notranslate"><span class="pre">projects:read</span></code>, <code class="docutils literal notranslate"><span class="pre">projects:write</span></code>)<a class="headerlink" href="#projeler-projects-read-projects-write" title="Link to this heading">#</a></h2>
+<p>Kanban tarzı proje panolarına erişim.</p>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Projelerini listele</p></li>
+<li><p>Proje detaylarını ve sütunlarını gör</p></li>
+<li><p>Yeni proje oluştur, güncelle</p></li>
+</ul>
+<p><strong>Örnek promptlar:</strong></p>
+<blockquote>
+<div><p><em>“Aktif projelerimi göster”</em>
+<em>“‘Mobile App’ projesinin sütunlarını listele”</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="klasorler-folders-read-folders-write">
+<h2>Klasörler (<code class="docutils literal notranslate"><span class="pre">folders:read</span></code>, <code class="docutils literal notranslate"><span class="pre">folders:write</span></code>)<a class="headerlink" href="#klasorler-folders-read-folders-write" title="Link to this heading">#</a></h2>
+<p>Proje içindeki klasör hiyerarşisi.</p>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Klasörleri listele ve içeriklerini gör</p></li>
+<li><p>Yeni klasör oluştur</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="tool-annotations">
-<h2>Tool annotations<a class="headerlink" href="#tool-annotations" title="Link to this heading">#</a></h2>
-<p>Each tool is annotated with hints that tell the AI client how to use it safely:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Annotation</p></th>
-<th class="head"><p>Meaning</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">readOnlyHint:</span> <span class="pre">true</span></code></p></td>
-<td><p>The tool does not modify any data</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">destructiveHint:</span> <span class="pre">true</span></code></p></td>
-<td><p>The tool may permanently delete data</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="etiketler-tags-read">
+<h2>Etiketler (<code class="docutils literal notranslate"><span class="pre">tags:read</span></code>)<a class="headerlink" href="#etiketler-tags-read" title="Link to this heading">#</a></h2>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Tüm etiketleri listele</p></li>
+<li><p>Belirli bir etikete sahip notları bul</p></li>
+</ul>
+<p><strong>Örnek promptlar:</strong></p>
+<blockquote>
+<div><p><em>“Hangi etiketlerim var?”</em>
+<em>“‘tasarım’ etiketli notlarımı listele”</em></p>
+</div></blockquote>
 </section>
 <hr class="docutils" />
-<section id="categories">
-<h2>Categories<a class="headerlink" href="#categories" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 10.0%" />
-<col style="width: 70.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Category</p></th>
-<th class="head"><p>Count</p></th>
-<th class="head"><p>What you can do</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="notes.html"><span class="std std-doc">Notes</span></a></p></td>
-<td><p>6</p></td>
-<td><p>Full CRUD on all note types plus keyword search</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="projects.html"><span class="std std-doc">Projects</span></a></p></td>
-<td><p>4</p></td>
-<td><p>Browse and manage project boards</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="folders.html"><span class="std std-doc">Folders</span></a></p></td>
-<td><p>3</p></td>
-<td><p>Navigate folder hierarchy</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="tags.html"><span class="std std-doc">Tags</span></a></p></td>
-<td><p>2</p></td>
-<td><p>Explore and filter by tags</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="tasks.html"><span class="std std-doc">Tasks</span></a></p></td>
-<td><p>3</p></td>
-<td><p>Read and write Kanban tasks</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ai.html"><span class="std std-doc">AI</span></a></p></td>
-<td><p>2</p></td>
-<td><p>Summaries and semantic search</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="calendar.html"><span class="std std-doc">Calendar</span></a></p></td>
-<td><p>3</p></td>
-<td><p>Read and add calendar entries</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="voice.html"><span class="std std-doc">Voice</span></a></p></td>
-<td><p>2</p></td>
-<td><p>Access transcripts of voice recordings</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="gorevler-tasks-read-tasks-write">
+<h2>Görevler (<code class="docutils literal notranslate"><span class="pre">tasks:read</span></code>, <code class="docutils literal notranslate"><span class="pre">tasks:write</span></code>)<a class="headerlink" href="#gorevler-tasks-read-tasks-write" title="Link to this heading">#</a></h2>
+<p>Proje panolarındaki görev kartları.</p>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Görevleri listele ve detaylarını gör</p></li>
+<li><p>Yeni görev oluştur</p></li>
+<li><p>Görevi farklı sütuna taşı</p></li>
+</ul>
+<p><strong>Örnek promptlar:</strong></p>
+<blockquote>
+<div><p><em>“Yapılacaklar sütunundaki görevleri göster”</em>
+<em>“‘Backend fix’ görevini Tamamlandı sütununa taşı”</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="ai-ai">
+<h2>AI (<code class="docutils literal notranslate"><span class="pre">ai</span></code>)<a class="headerlink" href="#ai-ai" title="Link to this heading">#</a></h2>
+<p>Noteflow’un AI özelliklerini kullan.</p>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Bir notun AI özetini al</p></li>
+<li><p>Semantik benzerlik araması yap (anlamsal, anahtar kelime değil)</p></li>
+</ul>
+<p><strong>Örnek promptlar:</strong></p>
+<blockquote>
+<div><p><em>“Bu notu özetle”</em>
+<em>“‘async programming’ ile ilgili notlarımı bul”</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="takvim-calendar-read-calendar-write">
+<h2>Takvim (<code class="docutils literal notranslate"><span class="pre">calendar:read</span></code>, <code class="docutils literal notranslate"><span class="pre">calendar:write</span></code>)<a class="headerlink" href="#takvim-calendar-read-calendar-write" title="Link to this heading">#</a></h2>
+<p>Takvim tipindeki notlardaki etkinlikler.</p>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Takvim notlarındaki etkinlikleri listele</p></li>
+<li><p>Yeni etkinlik ekle</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ses-notlari-voice-read">
+<h2>Ses Notları (<code class="docutils literal notranslate"><span class="pre">voice:read</span></code>)<a class="headerlink" href="#ses-notlari-voice-read" title="Link to this heading">#</a></h2>
+<p><strong>Yapabileceklerin:</strong></p>
+<ul class="simple">
+<li><p>Ses kayıtlarını listele</p></li>
+<li><p>Transkripti olan notların içeriğini oku</p></li>
+</ul>
+<p><strong>Örnek promptlar:</strong></p>
+<blockquote>
+<div><p><em>“Ses notlarımı listele”</em>
+<em>“API tasarımı hakkında konuştuğum ses kaydını bul”</em></p>
+</div></blockquote>
 </section>
 </section>
 
@@ -422,20 +437,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../feature-flags.html"
+       href="../intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Feature Flags</p>
+        <p class="prev-next-title">Noteflow MCP</p>
       </div>
     </a>
     <a class="right-next"
-       href="notes.html"
+       href="../feature-flags.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notes</p>
+        <p class="prev-next-title">Feature Flags</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -457,9 +472,14 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-naming-convention">Tool naming convention</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-annotations">Tool annotations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notlar-notes-read-notes-write">Notlar (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>, <code class="docutils literal notranslate"><span class="pre">notes:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projeler-projects-read-projects-write">Projeler (<code class="docutils literal notranslate"><span class="pre">projects:read</span></code>, <code class="docutils literal notranslate"><span class="pre">projects:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasorler-folders-read-folders-write">Klasörler (<code class="docutils literal notranslate"><span class="pre">folders:read</span></code>, <code class="docutils literal notranslate"><span class="pre">folders:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etiketler-tags-read">Etiketler (<code class="docutils literal notranslate"><span class="pre">tags:read</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gorevler-tasks-read-tasks-write">Görevler (<code class="docutils literal notranslate"><span class="pre">tasks:read</span></code>, <code class="docutils literal notranslate"><span class="pre">tasks:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-ai">AI (<code class="docutils literal notranslate"><span class="pre">ai</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#takvim-calendar-read-calendar-write">Takvim (<code class="docutils literal notranslate"><span class="pre">calendar:read</span></code>, <code class="docutils literal notranslate"><span class="pre">calendar:write</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ses-notlari-voice-read">Ses Notları (<code class="docutils literal notranslate"><span class="pre">voice:read</span></code>)</a></li>
 </ul>
   </nav></div>
 

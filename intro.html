@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Noteflow MCP Server &#8212; Noteflow MCP</title>
+    <title>Noteflow MCP &#8212; Noteflow MCP</title>
   
   
   
@@ -49,8 +49,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Noteflow MCP Server Documentation" href="index.html" />
+    <link rel="next" title="Araçlar" href="tools/index.html" />
+    <link rel="prev" title="Noteflow MCP" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -140,29 +140,10 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Noteflow MCP Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Noteflow MCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Araçlar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="feature-flags.html">Feature Flags</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tool Reference</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tool Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/projects.html">Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/folders.html">Folders</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/tags.html">Tags</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/tasks.html">Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/ai.html">AI Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/calendar.html">Calendar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools/voice.html">Voice</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
     </div>
@@ -298,7 +279,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Noteflow MCP Server</h1>
+    <h1>Noteflow MCP</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -308,10 +289,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-provides">What it provides</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source">Open source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adimda-baslangic">3 Adımda Başlangıç</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-al">1 — Token al</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claude-desktop-a-ekle">2 — Claude Desktop’a ekle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dene">3 — Dene</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cursor">Cursor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-github-copilot">VS Code (GitHub Copilot)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hangi-ozellikler-acik">Hangi özellikler açık?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorun-giderme">Sorun giderme</a></li>
 </ul>
             </nav>
         </div>
@@ -323,94 +310,109 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="noteflow-mcp-server">
-<h1>Noteflow MCP Server<a class="headerlink" href="#noteflow-mcp-server" title="Link to this heading">#</a></h1>
-<p><strong>Noteflow MCP</strong> is a <a class="reference external" href="https://modelcontextprotocol.io">Model Context Protocol</a> server that gives any MCP-compatible AI client — Claude Desktop, Cursor, VS Code Copilot, and others — direct, structured access to your Noteflow data.</p>
-<p>Once configured, you can talk to your notes, projects, and tasks in natural language:</p>
+  <section id="noteflow-mcp">
+<h1>Noteflow MCP<a class="headerlink" href="#noteflow-mcp" title="Link to this heading">#</a></h1>
+<p><strong>Noteflow MCP</strong>, Claude Desktop, Cursor ve VS Code gibi AI araçlarına Noteflow hesabına doğrudan erişim sağlar. Notlarınla, projelerinle ve görevlerinle doğal dilde konuşabilirsin.</p>
 <blockquote>
-<div><p><em>“Find all my notes tagged ‘meeting’ from last month and summarize the key action items.”</em>
-<em>“Create a new project called ‘Q3 Planning’ and add three tasks.”</em>
-<em>“Search my voice recordings for anything related to the API design.”</em></p>
+<div><p><em>“Geçen ay ‘toplantı’ etiketiyle açtığım notları özetle.”</em>
+<em>“Q3 Planlama adında yeni bir proje oluştur, üç görev ekle.”</em>
+<em>“API tasarımı ile ilgili ses kayıtlarımı bul.”</em></p>
 </div></blockquote>
 <hr class="docutils" />
-<section id="what-it-provides">
-<h2>What it provides<a class="headerlink" href="#what-it-provides" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Category</p></th>
-<th class="head"><p>Tools</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Notes</strong></p></td>
-<td><p>6</p></td>
-<td><p>List, read, create, update, delete, and search all note types (text, canvas, voice, image, drawing, presentation, page, calendar)</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Projects</strong></p></td>
-<td><p>4</p></td>
-<td><p>Browse and manage your Kanban-style project boards</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Folders</strong></p></td>
-<td><p>3</p></td>
-<td><p>Navigate the folder hierarchy within projects</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Tags</strong></p></td>
-<td><p>2</p></td>
-<td><p>Explore tags and find notes by tag</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Tasks</strong></p></td>
-<td><p>3</p></td>
-<td><p>Read and manage tasks inside project boards</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>AI</strong></p></td>
-<td><p>2</p></td>
-<td><p>Fetch AI summaries and run semantic similarity search</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Calendar</strong></p></td>
-<td><p>3</p></td>
-<td><p>Read and write calendar entries in calendar-type notes</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Voice</strong></p></td>
-<td><p>2</p></td>
-<td><p>Access voice note transcripts and metadata</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Total: 25 tools</strong> — all selectively enabled via feature flags.</p>
+<section id="adimda-baslangic">
+<h2>3 Adımda Başlangıç<a class="headerlink" href="#adimda-baslangic" title="Link to this heading">#</a></h2>
+<section id="token-al">
+<h3>1 — Token al<a class="headerlink" href="#token-al" title="Link to this heading">#</a></h3>
+<p>Noteflow uygulamasını aç → <strong>Ayarlar → Geliştirici</strong> → <strong>API Token Kopyala</strong> butonuna bas.</p>
+<p>Token, hesabına özel bir anahtar. Kimseyle paylaşma.</p>
 </section>
 <hr class="docutils" />
-<section id="how-it-works">
-<h2>How it works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MCP Client (Claude Desktop / Cursor / VS Code)
-        ↕  stdio / JSON-RPC
-  Noteflow MCP Server  (packages/mcp-server)
-        ↕  Firebase Admin SDK
-       Google Firestore
+<section id="claude-desktop-a-ekle">
+<h3>2 — Claude Desktop’a ekle<a class="headerlink" href="#claude-desktop-a-ekle" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/Claude/claude_desktop_config.json</span></code> dosyasını aç (Windows’ta <code class="docutils literal notranslate"><span class="pre">%APPDATA%\Claude\claude_desktop_config.json</span></code>) ve şunu ekle:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;noteflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;noteflow-mcp&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;NOTEFLOW_TOKEN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buraya_tokenini_yapıştır&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>The server runs as a local process on your machine. It authenticates to Firebase using a <strong>service account key</strong> you download once from the Firebase Console. Your data never passes through a third-party relay — it goes directly from Firestore to your AI client.</p>
+<p>Dosyayı kaydet, <strong>Claude Desktop’ı yeniden başlat</strong>.</p>
 </section>
 <hr class="docutils" />
-<section id="quick-start">
-<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="installation.html"><span class="std std-doc">Install</span></a> the MCP server</p></li>
-<li><p><a class="reference internal" href="authentication.html"><span class="std std-doc">Set up authentication</span></a> with a Firebase service account</p></li>
-<li><p>Add the server to your <a class="reference internal" href="configuration.html"><span class="std std-doc">MCP client config</span></a></p></li>
-<li><p>Start chatting with your notes</p></li>
-</ol>
+<section id="dene">
+<h3>3 — Dene<a class="headerlink" href="#dene" title="Link to this heading">#</a></h3>
+<p>Claude’a sor:</p>
+<blockquote>
+<div><p><em>“Noteflow’daki son 5 notumu göster”</em></p>
+</div></blockquote>
+<p>Çalışıyorsa Claude notlarını listeleyecek.</p>
+</section>
 </section>
 <hr class="docutils" />
-<section id="open-source">
-<h2>Open source<a class="headerlink" href="#open-source" title="Link to this heading">#</a></h2>
-<p>Both the Noteflow application and this MCP server are open source. The MCP server lives in the <code class="docutils literal notranslate"><span class="pre">packages/mcp-server/</span></code> directory of the main repository.</p>
+<section id="cursor">
+<h2>Cursor<a class="headerlink" href="#cursor" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.cursor/mcp.json</span></code> dosyasına ekle:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;noteflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;noteflow-mcp&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;NOTEFLOW_TOKEN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buraya_tokenini_yapıştır&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="vs-code-github-copilot">
+<h2>VS Code (GitHub Copilot)<a class="headerlink" href="#vs-code-github-copilot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.vscode/mcp.json</span></code> dosyasına ekle:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;noteflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stdio&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;noteflow-mcp&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;NOTEFLOW_TOKEN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buraya_tokenini_yapıştır&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="hangi-ozellikler-acik">
+<h2>Hangi özellikler açık?<a class="headerlink" href="#hangi-ozellikler-acik" title="Link to this heading">#</a></h2>
+<p>Varsayılan olarak yalnızca <strong>not okuma</strong> (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>) açıktır. Daha fazlasını açmak için <code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code> ekle:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;NOTEFLOW_TOKEN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;NOTEFLOW_FEATURES&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;notes:read,notes:write,projects:read,tasks:read,voice:read&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tüm özelliklerin listesi → <a class="reference internal" href="feature-flags.html"><span class="std std-doc">Feature Flags</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="sorun-giderme">
+<h2>Sorun giderme<a class="headerlink" href="#sorun-giderme" title="Link to this heading">#</a></h2>
+<p><strong>Token hatası alıyorum</strong>
+Noteflow uygulamasında oturumunu kapat ve tekrar giriş yap, sonra yeni token kopyala.</p>
+<p><strong>Claude araçları görmüyor</strong>
+Config dosyasını kaydedip Claude Desktop’ı tamamen kapatıp yeniden aç.</p>
+<p><strong>Yalnızca bazı araçları görmek istiyorum</strong>
+<code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code> ile istediğin araçları seçebilirsin. Detay → <a class="reference internal" href="feature-flags.html"><span class="std std-doc">Feature Flags</span></a></p>
 </section>
 </section>
 
@@ -431,15 +433,15 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Noteflow MCP Server Documentation</p>
+        <p class="prev-next-title">Noteflow MCP</p>
       </div>
     </a>
     <a class="right-next"
-       href="installation.html"
+       href="tools/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installation</p>
+        <p class="prev-next-title">Araçlar</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -461,10 +463,16 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-provides">What it provides</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source">Open source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adimda-baslangic">3 Adımda Başlangıç</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-al">1 — Token al</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claude-desktop-a-ekle">2 — Claude Desktop’a ekle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dene">3 — Dene</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cursor">Cursor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code-github-copilot">VS Code (GitHub Copilot)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hangi-ozellikler-acik">Hangi özellikler açık?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorun-giderme">Sorun giderme</a></li>
 </ul>
   </nav></div>
 

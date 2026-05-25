@@ -1,77 +1,118 @@
-# Noteflow MCP Server
+# Noteflow MCP
 
-**Noteflow MCP** is a [Model Context Protocol](https://modelcontextprotocol.io) server that gives any MCP-compatible AI client — Claude Desktop, Cursor, VS Code Copilot, and others — direct, structured access to your Noteflow data.
+**Noteflow MCP**, Claude Desktop, Cursor ve VS Code gibi AI araçlarına Noteflow hesabına doğrudan erişim sağlar. Notlarınla, projelerinle ve görevlerinle doğal dilde konuşabilirsin.
 
-Once configured, you can talk to your notes, projects, and tasks in natural language:
-
-> *"Find all my notes tagged 'meeting' from last month and summarize the key action items."*
-> *"Create a new project called 'Q3 Planning' and add three tasks."*
-> *"Search my voice recordings for anything related to the API design."*
+> *"Geçen ay 'toplantı' etiketiyle açtığım notları özetle."*
+> *"Q3 Planlama adında yeni bir proje oluştur, üç görev ekle."*
+> *"API tasarımı ile ilgili ses kayıtlarımı bul."*
 
 ---
 
-## What it provides
+## 3 Adımda Başlangıç
 
-```{list-table}
-:header-rows: 1
-:widths: 20 15 65
+### 1 — Token al
 
-* - Category
-  - Tools
-  - Description
-* - **Notes**
-  - 6
-  - List, read, create, update, delete, and search all note types (text, canvas, voice, image, drawing, presentation, page, calendar)
-* - **Projects**
-  - 4
-  - Browse and manage your Kanban-style project boards
-* - **Folders**
-  - 3
-  - Navigate the folder hierarchy within projects
-* - **Tags**
-  - 2
-  - Explore tags and find notes by tag
-* - **Tasks**
-  - 3
-  - Read and manage tasks inside project boards
-* - **AI**
-  - 2
-  - Fetch AI summaries and run semantic similarity search
-* - **Calendar**
-  - 3
-  - Read and write calendar entries in calendar-type notes
-* - **Voice**
-  - 2
-  - Access voice note transcripts and metadata
+Noteflow uygulamasını aç → **Ayarlar → Geliştirici** → **API Token Kopyala** butonuna bas.
+
+Token, hesabına özel bir anahtar. Kimseyle paylaşma.
+
+---
+
+### 2 — Claude Desktop'a ekle
+
+`~/Library/Application Support/Claude/claude_desktop_config.json` dosyasını aç (Windows'ta `%APPDATA%\Claude\claude_desktop_config.json`) ve şunu ekle:
+
+```json
+{
+  "mcpServers": {
+    "noteflow": {
+      "command": "npx",
+      "args": ["-y", "noteflow-mcp"],
+      "env": {
+        "NOTEFLOW_TOKEN": "buraya_tokenini_yapıştır"
+      }
+    }
+  }
+}
 ```
 
-**Total: 25 tools** — all selectively enabled via feature flags.
+Dosyayı kaydet, **Claude Desktop'ı yeniden başlat**.
 
 ---
 
-## How it works
+### 3 — Dene
 
+Claude'a sor:
+
+> *"Noteflow'daki son 5 notumu göster"*
+
+Çalışıyorsa Claude notlarını listeleyecek.
+
+---
+
+## Cursor
+
+`.cursor/mcp.json` dosyasına ekle:
+
+```json
+{
+  "mcpServers": {
+    "noteflow": {
+      "command": "npx",
+      "args": ["-y", "noteflow-mcp"],
+      "env": {
+        "NOTEFLOW_TOKEN": "buraya_tokenini_yapıştır"
+      }
+    }
+  }
+}
 ```
-MCP Client (Claude Desktop / Cursor / VS Code)
-        ↕  stdio / JSON-RPC
-  Noteflow MCP Server  (packages/mcp-server)
-        ↕  Firebase Admin SDK
-       Google Firestore
+
+---
+
+## VS Code (GitHub Copilot)
+
+`.vscode/mcp.json` dosyasına ekle:
+
+```json
+{
+  "servers": {
+    "noteflow": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "noteflow-mcp"],
+      "env": {
+        "NOTEFLOW_TOKEN": "buraya_tokenini_yapıştır"
+      }
+    }
+  }
+}
 ```
 
-The server runs as a local process on your machine. It authenticates to Firebase using a **service account key** you download once from the Firebase Console. Your data never passes through a third-party relay — it goes directly from Firestore to your AI client.
+---
+
+## Hangi özellikler açık?
+
+Varsayılan olarak yalnızca **not okuma** (`notes:read`) açıktır. Daha fazlasını açmak için `NOTEFLOW_FEATURES` ekle:
+
+```json
+"env": {
+  "NOTEFLOW_TOKEN": "...",
+  "NOTEFLOW_FEATURES": "notes:read,notes:write,projects:read,tasks:read,voice:read"
+}
+```
+
+Tüm özelliklerin listesi → [Feature Flags](feature-flags.md)
 
 ---
 
-## Quick start
+## Sorun giderme
 
-1. [Install](installation.md) the MCP server
-2. [Set up authentication](authentication.md) with a Firebase service account
-3. Add the server to your [MCP client config](configuration.md)
-4. Start chatting with your notes
+**Token hatası alıyorum**
+Noteflow uygulamasında oturumunu kapat ve tekrar giriş yap, sonra yeni token kopyala.
 
----
+**Claude araçları görmüyor**
+Config dosyasını kaydedip Claude Desktop'ı tamamen kapatıp yeniden aç.
 
-## Open source
-
-Both the Noteflow application and this MCP server are open source. The MCP server lives in the `packages/mcp-server/` directory of the main repository.
+**Yalnızca bazı araçları görmek istiyorum**
+`NOTEFLOW_FEATURES` ile istediğin araçları seçebilirsin. Detay → [Feature Flags](feature-flags.md)
