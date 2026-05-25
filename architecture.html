@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="tr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteFlow — Teknik Mimari &mdash; Noteflow 1.0 belgelendirmesi</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c9a0749e"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=b0f24d8d"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="search" title="Ara" href="search.html" />
+    <link rel="next" title="NoteFlow — Veri Modeli" href="data_model.html" />
+    <link rel="prev" title="NoteFlow — Özellik Listesi (Tam Detay)" href="features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Noteflow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Belgeleri arayın" aria-label="Belgeleri arayın" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">İçindekiler</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="features.html">NoteFlow — Özellik Listesi (Tam Detay)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NoteFlow — Teknik Mimari</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tech-stack">Tech Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#klasor-yapisi">Klasör Yapısı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#state-mimarisi">State Mimarisi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zustand-stores">Zustand Stores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#veri-akisi">Veri Akışı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#routing">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performans-stratejileri">Performans Stratejileri</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">NoteFlow — Veri Modeli</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Noteflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NoteFlow — Teknik Mimari</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/architecture.md.txt" rel="nofollow"> Sayfa kaynağını görüntüle</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="noteflow-teknik-mimari">
+<h1>NoteFlow — Teknik Mimari<a class="headerlink" href="#noteflow-teknik-mimari" title="Link to this heading"></a></h1>
+<section id="tech-stack">
+<h2>Tech Stack<a class="headerlink" href="#tech-stack" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Katman</p></th>
+<th class="head"><p>Teknoloji</p></th>
+<th class="head"><p>Neden</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Framework</p></td>
+<td><p>React 18 + TypeScript + Vite</p></td>
+<td><p>Hızlı, tip güvenli, modern</p></td>
+</tr>
+<tr class="row-odd"><td><p>Styling</p></td>
+<td><p>Tailwind CSS + shadcn/ui</p></td>
+<td><p>Tutarlı UI, kolay özelleştirme</p></td>
+</tr>
+<tr class="row-even"><td><p>Rich Text</p></td>
+<td><p>TipTap 2</p></td>
+<td><p>Tam özellikli, uzantılar, markdown</p></td>
+</tr>
+<tr class="row-odd"><td><p>Canvas</p></td>
+<td><p>Konva.js + React-Konva</p></td>
+<td><p>2D canvas, React entegrasyonu</p></td>
+</tr>
+<tr class="row-even"><td><p>Freehand</p></td>
+<td><p>perfect-freehand</p></td>
+<td><p>Yumuşak el çizimi</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ses</p></td>
+<td><p>MediaRecorder API (native)</p></td>
+<td><p>Tarayıcı built-in, hiç bağımlılık yok</p></td>
+</tr>
+<tr class="row-even"><td><p>Storage</p></td>
+<td><p>Dexie.js (IndexedDB)</p></td>
+<td><p>Offline, hızlı, async</p></td>
+</tr>
+<tr class="row-odd"><td><p>State</p></td>
+<td><p>Zustand</p></td>
+<td><p>Hafif, basit, slice pattern</p></td>
+</tr>
+<tr class="row-even"><td><p>Routing</p></td>
+<td><p>React Router v6</p></td>
+<td><p>Standart</p></td>
+</tr>
+<tr class="row-odd"><td><p>Drag &amp; Drop</p></td>
+<td><p>dnd-kit</p></td>
+<td><p>Erişilebilir, esnek</p></td>
+</tr>
+<tr class="row-even"><td><p>İkonlar</p></td>
+<td><p>Lucide React</p></td>
+<td><p>Tutarlı, hafif</p></td>
+</tr>
+<tr class="row-odd"><td><p>Animasyon</p></td>
+<td><p>Framer Motion</p></td>
+<td><p>Smooth geçişler</p></td>
+</tr>
+<tr class="row-even"><td><p>Tarih</p></td>
+<td><p>date-fns</p></td>
+<td><p>Hafif tarih manipülasyonu</p></td>
+</tr>
+<tr class="row-odd"><td><p>ID</p></td>
+<td><p>nanoid</p></td>
+<td><p>Kısa benzersiz ID</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="klasor-yapisi">
+<h2>Klasör Yapısı<a class="headerlink" href="#klasor-yapisi" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>new_pro/
+├── docs/                        # Proje belgeleri
+│   ├── FEATURES.md
+│   ├── ARCHITECTURE.md
+│   └── DATA_MODEL.md
+├── src/
+│   ├── main.tsx                 # Entry point
+│   ├── App.tsx                  # Router &amp; layout
+│   ├── index.css                # Tailwind imports
+│   │
+│   ├── types/                   # TypeScript tip tanımları
+│   │   ├── note.ts
+│   │   ├── project.ts
+│   │   ├── canvas.ts
+│   │   └── index.ts
+│   │
+│   ├── lib/                     # Yardımcı fonksiyonlar
+│   │   ├── db/
+│   │   │   ├── index.ts         # Dexie DB tanımı
+│   │   │   ├── notes.ts         # Not CRUD
+│   │   │   ├── projects.ts      # Proje CRUD
+│   │   │   └── folders.ts       # Klasör CRUD
+│   │   ├── utils.ts             # Genel yardımcılar
+│   │   └── keyboard.ts          # Kısayol yönetimi
+│   │
+│   ├── store/                   # Zustand store&#39;lar
+│   │   ├── useAppStore.ts       # Global UI state
+│   │   ├── useNotesStore.ts     # Not state
+│   │   ├── useProjectsStore.ts  # Proje state
+│   │   └── useCanvasStore.ts    # Canvas araç state
+│   │
+│   ├── hooks/                   # Özel hook&#39;lar
+│   │   ├── useNotes.ts          # Not CRUD hook&#39;ları
+│   │   ├── useProjects.ts       # Proje CRUD hook&#39;ları
+│   │   ├── useVoiceRecorder.ts  # Ses kayıt hook&#39;u
+│   │   ├── useCanvas.ts         # Canvas hook&#39;u
+│   │   └── useSearch.ts         # Arama hook&#39;u
+│   │
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── AppLayout.tsx        # Ana düzen (sidebar + içerik)
+│   │   │   ├── Sidebar.tsx          # Sol kenar çubuğu
+│   │   │   ├── SidebarNav.tsx       # Navigasyon linkleri
+│   │   │   ├── SidebarProjects.tsx  # Proje listesi
+│   │   │   ├── SidebarFolders.tsx   # Klasör ağacı
+│   │   │   └── Header.tsx           # Üst bar (arama, ayarlar)
+│   │   │
+│   │   ├── notes/
+│   │   │   ├── NoteCard.tsx         # Not kartı (grid/liste görünümü)
+│   │   │   ├── NoteList.tsx         # Not listesi
+│   │   │   ├── NoteGrid.tsx         # Not ızgarası
+│   │   │   ├── NoteEditor.tsx       # Genel not editör wrapper
+│   │   │   ├── TextNoteEditor.tsx   # TipTap zengin metin editörü
+│   │   │   ├── NoteToolbar.tsx      # Editör araç çubuğu
+│   │   │   └── NoteHeader.tsx       # Not başlığı &amp; meta
+│   │   │
+│   │   ├── canvas/
+│   │   │   ├── InfiniteCanvas.tsx   # Ana canvas bileşeni
+│   │   │   ├── CanvasToolbar.tsx    # Araç seçici (kalem, şekil vs.)
+│   │   │   ├── CanvasColorPicker.tsx
+│   │   │   ├── CanvasMinimap.tsx    # Mini harita
+│   │   │   ├── CanvasZoomControl.tsx
+│   │   │   ├── tools/
+│   │   │   │   ├── PenTool.tsx
+│   │   │   │   ├── ShapeTool.tsx
+│   │   │   │   ├── SelectTool.tsx
+│   │   │   │   ├── EraserTool.tsx
+│   │   │   │   └── TextTool.tsx
+│   │   │   └── shapes/
+│   │   │       ├── DrawingShape.tsx  # Serbest çizim
+│   │   │       ├── RectShape.tsx
+│   │   │       ├── CircleShape.tsx
+│   │   │       ├── ArrowShape.tsx
+│   │   │       └── StickyNote.tsx
+│   │   │
+│   │   ├── voice/
+│   │   │   ├── VoiceRecorder.tsx    # Kayıt arayüzü
+│   │   │   ├── VoicePlayer.tsx      # Oynatıcı
+│   │   │   ├── Waveform.tsx         # Dalga görselleştirme
+│   │   │   └── RecordButton.tsx
+│   │   │
+│   │   ├── presentation/
+│   │   │   ├── PresentationEditor.tsx
+│   │   │   ├── SlideList.tsx        # Sol panel slayt listesi
+│   │   │   ├── SlideEditor.tsx      # Slayt düzenleme alanı
+│   │   │   ├── SlideViewer.tsx      # Sunum modu
+│   │   │   └── SlideToolbar.tsx
+│   │   │
+│   │   ├── projects/
+│   │   │   ├── ProjectCard.tsx
+│   │   │   ├── ProjectGrid.tsx
+│   │   │   ├── ProjectHeader.tsx
+│   │   │   ├── NewProjectModal.tsx
+│   │   │   └── ProjectViewSwitcher.tsx  # Liste/ızgara/kanban
+│   │   │
+│   │   └── ui/                    # shadcn/ui bileşenleri + özel
+│   │       ├── Button.tsx
+│   │       ├── Input.tsx
+│   │       ├── Modal.tsx
+│   │       ├── Dropdown.tsx
+│   │       ├── Tooltip.tsx
+│   │       ├── Badge.tsx
+│   │       ├── ColorPicker.tsx
+│   │       ├── EmojiPicker.tsx
+│   │       ├── CommandPalette.tsx   # Ctrl+K hızlı arama
+│   │       ├── ContextMenu.tsx
+│   │       └── Toast.tsx
+│   │
+│   └── pages/
+│       ├── HomePage.tsx             # Dashboard / ana sayfa
+│       ├── AllNotesPage.tsx         # Tüm notlar
+│       ├── StarredPage.tsx          # Yıldızlı notlar
+│       ├── RecentPage.tsx           # Son notlar
+│       ├── TrashPage.tsx            # Çöp kutusu
+│       ├── SearchPage.tsx           # Arama sonuçları
+│       ├── SettingsPage.tsx         # Ayarlar
+│       ├── ProjectsPage.tsx         # Projeler listesi
+│       ├── ProjectDetailPage.tsx    # Proje içi
+│       └── NoteDetailPage.tsx       # Not detay/editör
+│
+├── public/
+│   ├── favicon.svg
+│   └── manifest.json              # PWA manifest
+├── index.html
+├── vite.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="state-mimarisi">
+<h2>State Mimarisi<a class="headerlink" href="#state-mimarisi" title="Link to this heading"></a></h2>
+<section id="zustand-stores">
+<h3>Zustand Stores<a class="headerlink" href="#zustand-stores" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>useAppStore
+├── theme: &#39;light&#39; | &#39;dark&#39; | &#39;system&#39;
+├── accentColor: string
+├── sidebarOpen: boolean
+├── sidebarWidth: number
+├── currentView: &#39;list&#39; | &#39;grid&#39; | &#39;kanban&#39;
+├── commandPaletteOpen: boolean
+└── activeModal: string | null
+
+useNotesStore
+├── notes: Note[]
+├── activeNoteId: string | null
+├── searchQuery: string
+├── filters: FilterState
+├── selectedNotes: string[]
+└── actions: CRUD + filter + search
+
+useProjectsStore
+├── projects: Project[]
+├── activeProjectId: string | null
+├── folders: Folder[]
+└── actions: CRUD
+
+useCanvasStore
+├── activeTool: CanvasTool
+├── strokeColor: string
+├── fillColor: string
+├── strokeWidth: number
+├── zoom: number
+├── panOffset: { x, y }
+└── history: CanvasAction[]
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="veri-akisi">
+<h2>Veri Akışı<a class="headerlink" href="#veri-akisi" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Kullanıcı Eylemi
+     │
+     ▼
+React Component
+     │
+     ▼
+Zustand Store Action
+     │
+     ├─► UI State güncelle (anında)
+     │
+     └─► Dexie.js (IndexedDB)
+              │
+              └─► Persist (async, arka planda)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="routing">
+<h2>Routing<a class="headerlink" href="#routing" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/                          → HomePage (Dashboard)
+/notes                     → AllNotesPage
+/notes/:id                 → NoteDetailPage
+/notes/new/:type           → Yeni not (type: text|canvas|voice|image|drawing)
+/starred                   → StarredPage
+/recent                    → RecentPage
+/trash                     → TrashPage
+/search                    → SearchPage
+/projects                  → ProjectsPage
+/projects/:id              → ProjectDetailPage
+/projects/:id/notes/:noteId → Proje içi not detay
+/settings                  → SettingsPage
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="performans-stratejileri">
+<h2>Performans Stratejileri<a class="headerlink" href="#performans-stratejileri" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Canvas: requestAnimationFrame tabanlı render</p></li>
+<li><p>Büyük not listeleri: virtual scroll (react-virtual)</p></li>
+<li><p>Resimler: lazy loading + thumbnail önbelleği</p></li>
+<li><p>Arama: debounce (300ms) + IndexedDB full-text index</p></li>
+<li><p>Otomatik kayıt: debounce (2000ms)</p></li>
+<li><p>Canvas nesneleri: kademeli render (görünür alan)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="features.html" class="btn btn-neutral float-left" title="NoteFlow — Özellik Listesi (Tam Detay)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Önceki</a>
+        <a href="data_model.html" class="btn btn-neutral float-right" title="NoteFlow — Veri Modeli" accesskey="n" rel="next">Sonraki <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, mahsumozer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    kullanılarak <a href="https://readthedocs.org">Read the Docs</a> tarafından sağlanmasıyla oluşturuldu.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

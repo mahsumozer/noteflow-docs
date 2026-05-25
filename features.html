@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="tr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteFlow — Özellik Listesi (Tam Detay) &mdash; Noteflow 1.0 belgelendirmesi</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c9a0749e"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=b0f24d8d"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="search" title="Ara" href="search.html" />
+    <link rel="next" title="NoteFlow — Teknik Mimari" href="architecture.html" />
+    <link rel="prev" title="Noteflow Dokümantasyonu" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Noteflow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Belgeleri arayın" aria-label="Belgeleri arayın" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">İçindekiler</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NoteFlow — Özellik Listesi (Tam Detay)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notlarim-my-notes">1. NOTLARIM (My Notes)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metin-notu">1.1 Metin Notu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canvas-notu-sonsuz-beyaz-tahta">1.2 Canvas Notu (Sonsuz Beyaz Tahta)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ses-notu-voice-note">1.3 Ses Notu (Voice Note)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gorsel-not-image-note">1.4 Görsel Not (Image Note)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cizim-notu-drawing-note">1.5 Çizim Notu (Drawing Note)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#projeler-projects">2. PROJELER (Projects)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#proje-yonetimi">2.1 Proje Yönetimi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proje-ici-notlar">2.2 Proje İçi Notlar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proje-gorunumleri">2.3 Proje Görünümleri</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sayfa-dokumanlari-pages">3. SAYFA DOKÜMANLARI (Pages)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cok-sayfali-dokuman">3.1 Çok Sayfalı Doküman</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sunum-presentation">4. SUNUM (Presentation)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#slayt-editoru">4.1 Slayt Editörü</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#arama-filtreleme">5. ARAMA &amp; FİLTRELEME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organizasyon">6. ORGANİZASYON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gorunum-kisisellestirme">7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#veri-depolama-local">8. VERİ &amp; DEPOLAMA (Local)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#klavye-kisayollari">9. KLAVYE KISAYOLLARI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ekstra-akilli-ozellikler">10. EKSTRA &amp; AKILLI ÖZELLİKLER</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">NoteFlow — Teknik Mimari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">NoteFlow — Veri Modeli</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Noteflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NoteFlow — Özellik Listesi (Tam Detay)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/features.md.txt" rel="nofollow"> Sayfa kaynağını görüntüle</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="noteflow-ozellik-listesi-tam-detay">
+<h1>NoteFlow — Özellik Listesi (Tam Detay)<a class="headerlink" href="#noteflow-ozellik-listesi-tam-detay" title="Link to this heading"></a></h1>
+<section id="notlarim-my-notes">
+<h2>1. NOTLARIM (My Notes)<a class="headerlink" href="#notlarim-my-notes" title="Link to this heading"></a></h2>
+<section id="metin-notu">
+<h3>1.1 Metin Notu<a class="headerlink" href="#metin-notu" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Zengin metin editörü (bold, italic, underline, strikethrough)</p></li>
+<li><p>Başlıklar (H1, H2, H3)</p></li>
+<li><p>Listeler (bullet, numaralı, checklist/yapılacaklar)</p></li>
+<li><p>Kod blokları (syntax highlight)</p></li>
+<li><p>Tablo oluşturma</p></li>
+<li><p>Alıntı blokları (blockquote)</p></li>
+<li><p>Matematiksel formüller (LaTeX)</p></li>
+<li><p>Bağlantı ekleme</p></li>
+<li><p>Emoji desteği</p></li>
+<li><p>Markdown yazma &amp; önizleme modu</p></li>
+<li><p>Kelime/karakter sayacı</p></li>
+<li><p>Otomatik kaydetme (her 2 saniyede bir)</p></li>
+<li><p>Versiyon geçmişi (son 20 kayıt)</p></li>
+<li><p>Not rengi (arka plan rengi seçimi)</p></li>
+<li><p>Not ikonu (emoji ile ikon)</p></li>
+<li><p>Etiket (tag) ekleme</p></li>
+<li><p>Favori/yıldızlama</p></li>
+<li><p>Arşivleme</p></li>
+<li><p>Çöp kutusu (silinen notlar 30 gün korunur)</p></li>
+<li><p>Yazdırma / PDF export</p></li>
+<li><p>Markdown export</p></li>
+<li><p>Kopyala (tüm içeriği panoya)</p></li>
+<li><p>Tam ekran yazma modu</p></li>
+<li><p>Odak modu (dikkat dağıtıcıları gizle)</p></li>
+</ul>
+</section>
+<section id="canvas-notu-sonsuz-beyaz-tahta">
+<h3>1.2 Canvas Notu (Sonsuz Beyaz Tahta)<a class="headerlink" href="#canvas-notu-sonsuz-beyaz-tahta" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Sonsuz kaydırılabilir canvas (pan + zoom)</p></li>
+<li><p>Serbest el çizimi (smooth curves)</p></li>
+<li><p>Şekiller: dikdörtgen, daire, üçgen, çizgi, ok, çokgen</p></li>
+<li><p>Metin kutusu (canvas üzerinde yazı)</p></li>
+<li><p>Yapışkan not (sticky note)</p></li>
+<li><p>Resim yapıştırma (clipboard, upload)</p></li>
+<li><p>Renk seçici (kalem, dolgu, kenarlık)</p></li>
+<li><p>Kalem kalınlığı ayarı</p></li>
+<li><p>Silgi aracı</p></li>
+<li><p>Seçim aracı (move, resize, rotate)</p></li>
+<li><p>Gruplama (birden fazla öğeyi seçip grupla)</p></li>
+<li><p>Katmanlar (layers)</p></li>
+<li><p>Grid/ızgara arka planı seçimi (boş, nokta, kare, çizgi)</p></li>
+<li><p>Geri al / yenile (undo/redo, 50 adım)</p></li>
+<li><p>Dışa aktar (PNG, SVG, PDF)</p></li>
+<li><p>Zoom kontrolü (mouse wheel, pinch-to-zoom, kısayol tuşları)</p></li>
+<li><p>Mini-map (sol alt köşede küçük harita)</p></li>
+<li><p>Canvas içine not kartı gömmek (embedded text note)</p></li>
+</ul>
+</section>
+<section id="ses-notu-voice-note">
+<h3>1.3 Ses Notu (Voice Note)<a class="headerlink" href="#ses-notu-voice-note" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tarayıcı mikrofonu ile kayıt (MediaRecorder API)</p></li>
+<li><p>Canlı ses dalgası animasyonu (waveform)</p></li>
+<li><p>Kayıt duraklatma / devam ettirme</p></li>
+<li><p>Kayıt süresi göstergesi</p></li>
+<li><p>Oynatıcı: play/pause, ileri/geri sar (10s), hız kontrolü (0.5x-2x)</p></li>
+<li><p>Ses dalgası görselleştirme (playback waveform)</p></li>
+<li><p>Ses notuna metin not ekleme</p></li>
+<li><p>Ses notuna başlık</p></li>
+<li><p>Etiket ekleme</p></li>
+<li><p>Ses dosyası export (WebM/MP3)</p></li>
+<li><p>Toplam kayıt süresi göstergesi</p></li>
+<li><p>Ses notu listesi (tarih, süre, başlık)</p></li>
+</ul>
+</section>
+<section id="gorsel-not-image-note">
+<h3>1.4 Görsel Not (Image Note)<a class="headerlink" href="#gorsel-not-image-note" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Resim yükleme (dosya seç veya sürükle-bırak)</p></li>
+<li><p>Clipboard’dan yapıştırma (Ctrl+V)</p></li>
+<li><p>Resim üzerine not yazma (overlay metin)</p></li>
+<li><p>Resim kırpma (crop)</p></li>
+<li><p>Temel filtreler (parlaklık, kontrast, greyscale)</p></li>
+<li><p>Birden fazla resim galeri görünümü</p></li>
+<li><p>Resim yanına metin notu</p></li>
+<li><p>OCR metni çıkarma (tarayıcı Web API)</p></li>
+</ul>
+</section>
+<section id="cizim-notu-drawing-note">
+<h3>1.5 Çizim Notu (Drawing Note)<a class="headerlink" href="#cizim-notu-drawing-note" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Sadece çizime odaklı tam ekran canvas</p></li>
+<li><p>Kalem aracı (smooth freehand)</p></li>
+<li><p>Işıklı kalem / vurgulama (highlight pen, yarı saydam)</p></li>
+<li><p>Fotoğraf çerçeve aracı</p></li>
+<li><p>Şekil tanıma (kaba daire → mükemmel daire)</p></li>
+<li><p>Renk paleti (temel + özel renkler)</p></li>
+<li><p>Katmanlar</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="projeler-projects">
+<h2>2. PROJELER (Projects)<a class="headerlink" href="#projeler-projects" title="Link to this heading"></a></h2>
+<section id="proje-yonetimi">
+<h3>2.1 Proje Yönetimi<a class="headerlink" href="#proje-yonetimi" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Yeni proje oluşturma (ad, renk, ikon, açıklama)</p></li>
+<li><p>Proje silme / arşivleme</p></li>
+<li><p>Proje güncelleme</p></li>
+<li><p>Proje arama</p></li>
+<li><p>Proje sıralama (son düzenleme, oluşturma, isim)</p></li>
+<li><p>Proje renk etiketi</p></li>
+<li><p>Proje kapak görseli</p></li>
+<li><p>Son açılan projeler (sidebar’da)</p></li>
+<li><p>Proje paylaşım bağlantısı (local export)</p></li>
+</ul>
+</section>
+<section id="proje-ici-notlar">
+<h3>2.2 Proje İçi Notlar<a class="headerlink" href="#proje-ici-notlar" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Proje altında tüm not tipleri (metin, canvas, ses, görsel, çizim, sunum, sayfa)</p></li>
+<li><p>Proje içi klasörler / alt klasörler</p></li>
+<li><p>Proje içi arama</p></li>
+<li><p>Not sıralama &amp; filtreleme</p></li>
+<li><p>Sürükle-bırak ile not taşıma (proje içi &amp; projeler arası)</p></li>
+<li><p>Not kopyalama (başka projeye / notlarıma)</p></li>
+<li><p>Not bağlantıları (bir notu başka nota link etme)</p></li>
+<li><p>Proje özet sayfası (kaç not, son düzenleme, istatistikler)</p></li>
+</ul>
+</section>
+<section id="proje-gorunumleri">
+<h3>2.3 Proje Görünümleri<a class="headerlink" href="#proje-gorunumleri" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Liste görünümü</p></li>
+<li><p>Izgara (grid/kart) görünümü</p></li>
+<li><p>Kanban tahtası (notları sütunlar arasında taşı)</p></li>
+<li><p>Tablo görünümü (not listesi tablo olarak)</p></li>
+<li><p>Takvim görünümü (tarih bazlı)</p></li>
+<li><p>Zaman çizelgesi (timeline)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sayfa-dokumanlari-pages">
+<h2>3. SAYFA DOKÜMANLARI (Pages)<a class="headerlink" href="#sayfa-dokumanlari-pages" title="Link to this heading"></a></h2>
+<section id="cok-sayfali-dokuman">
+<h3>3.1 Çok Sayfalı Doküman<a class="headerlink" href="#cok-sayfali-dokuman" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Doküman içinde birden fazla sayfa</p></li>
+<li><p>Sayfa ekleme / silme / yeniden sıralama</p></li>
+<li><p>Sayfa küçük resimleri (thumbnails) sol panelde</p></li>
+<li><p>Sayfa numaralandırma (özelleştirilebilir)</p></li>
+<li><p>Sayfa boyutu seçimi (A4, A3, Letter, özel)</p></li>
+<li><p>Sayfa yönü (dikey / yatay)</p></li>
+<li><p>Üst bilgi / alt bilgi (header / footer)</p></li>
+<li><p>İçindekiler tablosu otomatik oluşturma</p></li>
+<li><p>Sayfa geçiş animasyonu (önizlemede)</p></li>
+<li><p>PDF olarak dışa aktar (tüm sayfalar)</p></li>
+<li><p>Word/DOCX benzeri düzen görünümü</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sunum-presentation">
+<h2>4. SUNUM (Presentation)<a class="headerlink" href="#sunum-presentation" title="Link to this heading"></a></h2>
+<section id="slayt-editoru">
+<h3>4.1 Slayt Editörü<a class="headerlink" href="#slayt-editoru" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Slayt ekleme / silme / kopyalama / yeniden sıralama</p></li>
+<li><p>Slayt şablonları (boş, başlık, içerik, resim+metin, vs.)</p></li>
+<li><p>Slayt arka planı (renk, degradé, resim)</p></li>
+<li><p>Metin kutuları (serbest konumlandırma)</p></li>
+<li><p>Şekiller ve çizimler</p></li>
+<li><p>Resim ekleme ve konumlandırma</p></li>
+<li><p>Animasyon efektleri (slayt giriş/çıkış)</p></li>
+<li><p>Sunum modu (tam ekran, klavye navigasyonu)</p></li>
+<li><p>Sunum zamanlayıcı</p></li>
+<li><p>Notlar alanı (presenter notes)</p></li>
+<li><p>Slayt küçük resimleri (sol panel)</p></li>
+<li><p>Dışa aktar (PDF)</p></li>
+<li><p>Tema renk paleti</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="arama-filtreleme">
+<h2>5. ARAMA &amp; FİLTRELEME<a class="headerlink" href="#arama-filtreleme" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Global tam metin arama (tüm notlar)</p></li>
+<li><p>Filtreler: not tipi, tarih aralığı, etiket, proje, yıldızlı</p></li>
+<li><p>Arama geçmişi</p></li>
+<li><p>Sonuçlarda öne çıkarma (highlight)</p></li>
+<li><p>Hızlı erişim (Ctrl+K command palette)</p></li>
+<li><p>Son açılan notlar</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="organizasyon">
+<h2>6. ORGANİZASYON<a class="headerlink" href="#organizasyon" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Etiketler (tags) — renkli, çoklu</p></li>
+<li><p>Klasörler / alt klasörler (iç içe)</p></li>
+<li><p>Favoriler (yıldızlı notlar)</p></li>
+<li><p>Arşiv</p></li>
+<li><p>Çöp kutusu (geri yükleme / kalıcı silme)</p></li>
+<li><p>Sürükle-bırak ile yeniden düzenleme</p></li>
+<li><p>Toplu işlemler (seç + etiket ekle / taşı / sil)</p></li>
+<li><p>Not bağlantıları (Wiki-style [[note link]])</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="gorunum-kisisellestirme">
+<h2>7. GÖRÜNÜM &amp; KİŞİSELLEŞTİRME<a class="headerlink" href="#gorunum-kisisellestirme" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Karanlık / açık tema (dark/light mode)</p></li>
+<li><p>Sistem temasına uyum (auto)</p></li>
+<li><p>Renk aksan seçimi (6 renk)</p></li>
+<li><p>Yazı tipi seçimi (editörde)</p></li>
+<li><p>Yazı boyutu ayarı</p></li>
+<li><p>Sidebar genişliği ayarı</p></li>
+<li><p>Kompakt / rahat görünüm</p></li>
+<li><p>Tam ekran modu</p></li>
+<li><p>Kenar çubuğu gizleme</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="veri-depolama-local">
+<h2>8. VERİ &amp; DEPOLAMA (Local)<a class="headerlink" href="#veri-depolama-local" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Tüm veri tarayıcı IndexedDB’de (Dexie.js)</p></li>
+<li><p>Otomatik yedekleme (JSON export)</p></li>
+<li><p>İmport (JSON yedekten geri yükle)</p></li>
+<li><p>Depolama kullanım göstergesi</p></li>
+<li><p>Çevrimdışı çalışma (tam offline PWA)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="klavye-kisayollari">
+<h2>9. KLAVYE KISAYOLLARI<a class="headerlink" href="#klavye-kisayollari" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kısayol</p></th>
+<th class="head"><p>İşlem</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ctrl+N</p></td>
+<td><p>Yeni not</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ctrl+K</p></td>
+<td><p>Komut paleti (hızlı arama)</p></td>
+</tr>
+<tr class="row-even"><td><p>Ctrl+S</p></td>
+<td><p>Kaydet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ctrl+Z</p></td>
+<td><p>Geri al</p></td>
+</tr>
+<tr class="row-even"><td><p>Ctrl+Shift+Z</p></td>
+<td><p>Yenile</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ctrl+F</p></td>
+<td><p>Notta ara</p></td>
+</tr>
+<tr class="row-even"><td><p>Ctrl+B</p></td>
+<td><p>Kalın</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ctrl+I</p></td>
+<td><p>İtalik</p></td>
+</tr>
+<tr class="row-even"><td><p>Ctrl+/</p></td>
+<td><p>Odak modu</p></td>
+</tr>
+<tr class="row-odd"><td><p>Escape</p></td>
+<td><p>Kapat / geri</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="ekstra-akilli-ozellikler">
+<h2>10. EKSTRA &amp; AKILLI ÖZELLİKLER<a class="headerlink" href="#ekstra-akilli-ozellikler" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Not şablonları (boş, günlük, toplantı notu, proje planı)</p></li>
+<li><p>Hızlı not (floating quick-capture butonu)</p></li>
+<li><p>Son düzenlenen notlar paneli (sidebar)</p></li>
+<li><p>İstatistikler sayfası (toplam not, yazı sayısı, kayıt süresi)</p></li>
+<li><p>Tarayıcı bildirimleri (hatırlatıcı)</p></li>
+<li><p>PWA desteği (masaüstüne ekle)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Noteflow Dokümantasyonu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Önceki</a>
+        <a href="architecture.html" class="btn btn-neutral float-right" title="NoteFlow — Teknik Mimari" accesskey="n" rel="next">Sonraki <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, mahsumozer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    kullanılarak <a href="https://readthedocs.org">Read the Docs</a> tarafından sağlanmasıyla oluşturuldu.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

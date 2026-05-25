@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="tr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteFlow — Veri Modeli &mdash; Noteflow 1.0 belgelendirmesi</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c9a0749e"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=b0f24d8d"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Dizin" href="genindex.html" />
+    <link rel="search" title="Ara" href="search.html" />
+    <link rel="prev" title="NoteFlow — Teknik Mimari" href="architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Noteflow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Belgeleri arayın" aria-label="Belgeleri arayın" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">İçindekiler</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="features.html">NoteFlow — Özellik Listesi (Tam Detay)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">NoteFlow — Teknik Mimari</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NoteFlow — Veri Modeli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#indexeddb-tablolari-dexie-js">IndexedDB Tabloları (Dexie.js)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notes">notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notecontent-tipleri">NoteContent tipleri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#projects">projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folders">folders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tags">tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#noteversions-versiyon-gecmisi">noteVersions (versiyon geçmişi)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings">settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dexie-sema-tanimi">Dexie Şema Tanımı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ornek-veri">Örnek Veri</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Noteflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NoteFlow — Veri Modeli</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/data_model.md.txt" rel="nofollow"> Sayfa kaynağını görüntüle</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="noteflow-veri-modeli">
+<h1>NoteFlow — Veri Modeli<a class="headerlink" href="#noteflow-veri-modeli" title="Link to this heading"></a></h1>
+<section id="indexeddb-tablolari-dexie-js">
+<h2>IndexedDB Tabloları (Dexie.js)<a class="headerlink" href="#indexeddb-tablolari-dexie-js" title="Link to this heading"></a></h2>
+<hr class="docutils" />
+<section id="notes">
+<h3>notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span><span class="w"> </span><span class="nx">Note</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">               </span><span class="c1">// nanoid()</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">NoteType</span><span class="w">           </span><span class="c1">// &#39;text&#39; | &#39;canvas&#39; | &#39;voice&#39; | &#39;image&#39; | &#39;drawing&#39; | &#39;presentation&#39; | &#39;page&#39;</span>
+<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">NoteContent</span><span class="w">     </span><span class="c1">// type&#39;a göre değişen içerik (JSON)</span>
+<span class="w">  </span><span class="nx">projectId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// null = &quot;Notlarım&quot;</span>
+<span class="w">  </span><span class="nx">folderId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span>
+<span class="w">  </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">            </span><span class="c1">// hex arka plan rengi</span>
+<span class="w">  </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// emoji ikon</span>
+<span class="w">  </span><span class="nx">starred</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+<span class="w">  </span><span class="nx">archived</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+<span class="w">  </span><span class="nx">deleted</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+<span class="w">  </span><span class="nx">deletedAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">updatedAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">wordCount</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// text notlar için</span>
+<span class="w">  </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">         </span><span class="c1">// ses notlar için (saniye)</span>
+<span class="w">  </span><span class="nx">thumbnail</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// base64 küçük resim (canvas/image)</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">NoteType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;text&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;canvas&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;voice&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;image&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;drawing&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;presentation&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;page&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="notecontent-tipleri">
+<h3>NoteContent tipleri<a class="headerlink" href="#notecontent-tipleri" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Metin notu</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">TextNoteContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">html</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// TipTap HTML çıktısı</span>
+<span class="w">  </span><span class="nx">plainText</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">        </span><span class="c1">// Arama için</span>
+<span class="p">}</span>
+
+<span class="c1">// Canvas notu</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">CanvasNoteContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">objects</span><span class="o">:</span><span class="w"> </span><span class="kt">KonvaObject</span><span class="p">[]</span><span class="w">   </span><span class="c1">// Konva sahne nesneleri (JSON)</span>
+<span class="w">  </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">       </span><span class="c1">// &#39;blank&#39; | &#39;dots&#39; | &#39;grid&#39; | &#39;lines&#39;</span>
+<span class="w">  </span><span class="nx">viewportX</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">  </span><span class="nx">viewportY</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">  </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="p">}</span>
+
+<span class="c1">// Ses notu</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">VoiceNoteContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">audioData</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">        </span><span class="c1">// base64 WebM/audio</span>
+<span class="w">  </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">         </span><span class="c1">// saniye</span>
+<span class="w">  </span><span class="nx">waveformData</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w">   </span><span class="c1">// dalga görselleştirme için amplitüd dizisi</span>
+<span class="w">  </span><span class="nx">transcriptText</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">   </span><span class="c1">// isteğe bağlı transkript</span>
+<span class="w">  </span><span class="nx">textNote</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">         </span><span class="c1">// ses yanındaki metin</span>
+<span class="p">}</span>
+
+<span class="c1">// Görsel notu</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">ImageNoteContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">images</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">           </span><span class="c1">// base64</span>
+<span class="w">    </span><span class="nx">caption</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">    </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">  </span><span class="p">}[]</span>
+<span class="w">  </span><span class="nx">textNote</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="c1">// Sunum</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">PresentationContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">slides</span><span class="o">:</span><span class="w"> </span><span class="kt">Slide</span><span class="p">[]</span>
+<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="kt">PresentationTheme</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">Slide</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">elements</span><span class="o">:</span><span class="w"> </span><span class="kt">SlideElement</span><span class="p">[]</span>
+<span class="w">  </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="kt">SlideBackground</span>
+<span class="w">  </span><span class="nx">presenterNotes</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">transition</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="c1">// Çok sayfalı doküman</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">PageDocContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">pages</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">html</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">           </span><span class="c1">// TipTap HTML</span>
+<span class="w">    </span><span class="nx">pageSize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A4&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;A3&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;Letter&#39;</span>
+<span class="w">    </span><span class="nx">orientation</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;portrait&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;landscape&#39;</span>
+<span class="w">  </span><span class="p">}[]</span>
+<span class="w">  </span><span class="nx">header</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">footer</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="projects">
+<h3>projects<a class="headerlink" href="#projects" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span><span class="w"> </span><span class="nx">Project</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">            </span><span class="c1">// hex</span>
+<span class="w">  </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// emoji</span>
+<span class="w">  </span><span class="nx">coverImage</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// base64</span>
+<span class="w">  </span><span class="nx">archived</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+<span class="w">  </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">updatedAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">noteCount</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// cache (performans)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="folders">
+<h3>folders<a class="headerlink" href="#folders" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span><span class="w"> </span><span class="nx">Folder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">projectId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// null = &quot;Notlarım&quot; altında</span>
+<span class="w">  </span><span class="nx">parentId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w">  </span><span class="c1">// null = root klasör</span>
+<span class="w">  </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">updatedAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">            </span><span class="c1">// sıralama</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tags">
+<h3>tags<a class="headerlink" href="#tags" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span><span class="w"> </span><span class="nx">Tag</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">noteCount</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// cache</span>
+<span class="w">  </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="noteversions-versiyon-gecmisi">
+<h3>noteVersions (versiyon geçmişi)<a class="headerlink" href="#noteversions-versiyon-gecmisi" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span><span class="w"> </span><span class="nx">NoteVersion</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">noteId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">NoteContent</span>
+<span class="w">  </span><span class="nx">savedAt</span><span class="o">:</span><span class="w"> </span><span class="kt">Date</span>
+<span class="w">  </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w">     </span><span class="c1">// isteğe bağlı kullanıcı etiketi</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="settings">
+<h3>settings<a class="headerlink" href="#settings" title="Link to this heading"></a></h3>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span><span class="w"> </span><span class="nx">AppSettings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;singleton&#39;</span><span class="w">          </span><span class="c1">// tek kayıt</span>
+<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;light&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;system&#39;</span>
+<span class="w">  </span><span class="nx">accentColor</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">fontSize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sm&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;md&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;lg&#39;</span>
+<span class="w">  </span><span class="nx">fontFamily</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">sidebarWidth</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">  </span><span class="nx">defaultView</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;list&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;grid&#39;</span>
+<span class="w">  </span><span class="nx">autoSaveDelay</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">    </span><span class="c1">// ms, varsayılan 2000</span>
+<span class="w">  </span><span class="nx">compactMode</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dexie-sema-tanimi">
+<h2>Dexie Şema Tanımı<a class="headerlink" href="#dexie-sema-tanimi" title="Link to this heading"></a></h2>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span><span class="w"> </span><span class="nx">NoteFlowDB</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Dexie</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">notes</span><span class="o">!:</span><span class="w"> </span><span class="nx">Table</span><span class="o">&lt;</span><span class="nx">Note</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">projects</span><span class="o">!:</span><span class="w"> </span><span class="nx">Table</span><span class="o">&lt;</span><span class="nx">Project</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">folders</span><span class="o">!:</span><span class="w"> </span><span class="nx">Table</span><span class="o">&lt;</span><span class="nx">Folder</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">tags</span><span class="o">!:</span><span class="w"> </span><span class="nx">Table</span><span class="o">&lt;</span><span class="nx">Tag</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">noteVersions</span><span class="o">!:</span><span class="w"> </span><span class="nx">Table</span><span class="o">&lt;</span><span class="nx">NoteVersion</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">settings</span><span class="o">!:</span><span class="w"> </span><span class="nx">Table</span><span class="o">&lt;</span><span class="nx">AppSettings</span><span class="o">&gt;</span>
+
+<span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="s1">&#39;NoteFlowDB&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">version</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">stores</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">notes</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id, type, projectId, folderId, starred, archived, deleted, createdAt, updatedAt, *tags&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">projects</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id, archived, createdAt&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">folders</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id, projectId, parentId&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id, name&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">noteVersions</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id, noteId, savedAt&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">settings</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ornek-veri">
+<h2>Örnek Veri<a class="headerlink" href="#ornek-veri" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;note&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Proje Toplantı Notları&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;html&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Toplantı&lt;/h1&gt;&lt;p&gt;Bugün şunları konuştuk...&lt;/p&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;plainText&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Toplantı\nBugün şunları konuştuk...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;projectId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proj456&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;folderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;toplantı&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;önemli&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#fef3c7&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;📝&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;starred&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;archived&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deleted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deletedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-05-12T10:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-05-12T10:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;wordCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">245</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;thumbnail&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="architecture.html" class="btn btn-neutral float-left" title="NoteFlow — Teknik Mimari" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Önceki</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, mahsumozer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    kullanılarak <a href="https://readthedocs.org">Read the Docs</a> tarafından sağlanmasıyla oluşturuldu.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

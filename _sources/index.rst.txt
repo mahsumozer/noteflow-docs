@@ -1,0 +1,12 @@
+Noteflow Dokümantasyonu
+======================
+
+Noteflow, modern bir not alma PWA'sıdır. Metin, ses, canvas, görsel ve takvim notlarını tek bir uygulamada birleştirir.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: İçindekiler
+
+   features
+   architecture
+   data_model
