@@ -1,74 +1,92 @@
-# Claude Code ile Kullanım
+# Claude Code CLI ile Kullanım
 
-Claude Code kullanıyorsan `/noteflow` slash komutuyla Noteflow'u doğrudan terminal oturumundan kullanabilirsin. Kod yazarken ayrı bir pencereye geçmene gerek kalmaz.
+Noteflow MCP'yi Claude Code CLI'ye bağlamak `noteflow setup` komutuyla birkaç saniye sürer.
 
 ---
 
 ## Kurulum
 
-`.claude/commands/noteflow.md` dosyasını oluştur:
+### 1 — Global install
 
 ```bash
-mkdir -p ~/.claude/commands
+npm install -g noteflow-mcp
 ```
 
-Sonra `~/.claude/commands/noteflow.md` dosyasını aşağıdaki içerikle oluştur:
-
-```
-Bu bir Noteflow komutu. Kullanıcının isteği: $ARGUMENTS
-
-MCP_SERVER: noteflow-mcp (npx ile çalıştır)
-TOKEN: NOTEFLOW_TOKEN env var'ından al
-FEATURES: notes:read,notes:write,projects:read,projects:write,
-          folders:read,tags:read,tasks:read,tasks:write,
-          ai,calendar:read,voice:read
-
-İsteği analiz et, uygun MCP aracını JSON-RPC ile çağır,
-sonucu Türkçe okunabilir şekilde sun.
-```
-
-Token'ı shell profile'ına ekle (kalıcı olsun):
+### 2 — Giriş yap
 
 ```bash
-echo 'export NOTEFLOW_TOKEN="tokenini_buraya_yaz"' >> ~/.zshrc
-source ~/.zshrc
+noteflow login
 ```
+
+Tarayıcıda Noteflow hesabınla oturum açılır, token otomatik kaydedilir.
+
+### 3 — Repo'nu Noteflow projesine bağla
+
+Proje klasöründe çalıştır:
+
+```bash
+noteflow init
+```
+
+Noteflow'daki projelerini listeler, seçtiğin projeyle `.noteflow/project.json` dosyası oluşturur.
+
+### 4 — Claude Code CLI'ye ekle
+
+```bash
+noteflow setup
+```
+
+Listeden **Claude Code CLI** seçeneğini seç. Komut `~/.claude.json` dosyasına MCP sunucusunu otomatik yazar.
+
+### 5 — Yeniden başlat
+
+Claude Code oturumunu kapat ve yeniden aç.
 
 ---
 
 ## Kullanım
 
+Artık Claude, Noteflow araçlarına doğrudan erişir:
+
 ```
-/noteflow notlarımı listele
-/noteflow "todo" içeren notları ara
-/noteflow "claude deneme" adında yeni proje oluştur
-/noteflow todo: projesindeki görevleri göster
-/noteflow [not-id] notu özetle
+noteflow_get_current_project_context   → hangi projedeyim, bağlam nedir
+noteflow_list_memory_commits           → geçmiş kararlar neler
+noteflow_create_memory_commit          → karar kaydet
 ```
+
+Standart not/proje/görev araçları da kullanılabilir (`noteflow_notes_list`, `noteflow_tasks_create` vb.).
 
 ---
 
-## Örnek Akış
+## Memory Commits
 
-```
-/noteflow projelerimi listele
-→ 📁 todo: (6 görev)  📁 devonian (1 görev) ...
+Bir AI önemli bir iş tamamladığında `noteflow_create_memory_commit` çağırır:
 
-/noteflow todo: projesine "Login sayfasını düzelt" görevi ekle
-→ ✅ Görev oluşturuldu
+- **Git diff otomatik capture** edilir — kod değişiklikleri Firebase Storage'a yüklenir
+- Başlık, özet, kararlar, nedenler, etkilenen dosyalar kaydedilir
+- Noteflow web uygulamasının **Memory** sekmesinde GitHub Desktop tarzı diff viewer'da görünür
 
-/noteflow geçen hafta açtığım notları listele
-→ 5 not listelendi...
-```
+Bir AI'ın context'i dolup başka bir AI devralsa bile, `noteflow_list_memory_commits` ile önceki tüm kararları okuyabilir.
 
 ---
 
-## Neden Kullanışlı?
+## Manuel kurulum (alternatif)
 
-Kod yazarken veya bir proje üzerinde çalışırken Noteflow uygulamasına geçmeden:
-- Not alabilirsin
-- Projeye görev ekleyebilirsin
-- Ses notlarının transkriptini okuyabilirsin
-- Notlarında arama yapabilirsin
+`noteflow setup` kullanmak istemiyorsan `~/.claude.json` dosyasını kendin düzenle:
 
-Tüm bunlar Claude Code oturumundan çıkmadan, `/noteflow` komutuyla.
+```json
+{
+  "mcpServers": {
+    "noteflow": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "noteflow-mcp"],
+      "env": {
+        "NOTEFLOW_TOKEN": "buraya_tokenini_yapıştır"
+      }
+    }
+  }
+}
+```
+
+Token almak için: Noteflow uygulaması → **Ayarlar → Geliştirici → API Token Kopyala**
