@@ -1,10 +1,10 @@
 # Noteflow MCP
 
-**Noteflow MCP**, Claude Desktop, Cursor ve VS Code gibi AI araçlarına Noteflow hesabına doğrudan erişim sağlar. Notlarınla, projelerinle ve görevlerinle doğal dilde konuşabilirsin.
+**Noteflow MCP**, Claude Desktop, Claude Code CLI, Codex, Cursor ve VS Code gibi AI araçlarına Noteflow hesabına doğrudan erişim sağlar. Notlarınla, projelerinle, görevlerinle ve proje hafızanla doğal dilde konuşabilirsin.
 
 > *"Geçen ay 'toplantı' etiketiyle açtığım notları özetle."*
 > *"Q3 Planlama adında yeni bir proje oluştur, üç görev ekle."*
-> *"API tasarımı ile ilgili ses kayıtlarımı bul."*
+> *"Bu projedeki son kararları listele."*
 
 ---
 
@@ -14,28 +14,49 @@
 npm install -g noteflow-mcp
 ```
 
-Ya da kurulum yapmadan direkt çalıştır (npx her seferinde güncel versiyonu indirir):
+---
+
+## 4 Adımda Başlangıç
+
+### 1 — Giriş yap
 
 ```bash
-npx noteflow-mcp --help
+noteflow login
 ```
 
+### 2 — Repo'nu bağla (opsiyonel, Memory Commits için gerekli)
+
+```bash
+noteflow init
+```
+
+Proje klasöründe çalıştır. Noteflow projelerini listeler, seçtiğinle `.noteflow/project.json` oluşturur.
+
+### 3 — AI aracına ekle
+
+```bash
+noteflow setup
+```
+
+Desteklenen araçlar ve nasıl yapılandırıldıkları:
+
+| AI Aracı | Yapılandırma dosyası |
+|---|---|
+| Claude Desktop | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| Claude Code CLI | `~/.claude.json` |
+| Codex CLI | `~/.codex/config.toml` |
+| Cursor | `.cursor/mcp.json` |
+| VS Code | `.vscode/mcp.json` |
+
+`noteflow setup` seçilen araca göre ilgili dosyayı otomatik günceller.
+
+### 4 — AI aracını yeniden başlat
+
 ---
 
-## 3 Adımda Başlangıç
+## Manuel Kurulum (Claude Desktop örneği)
 
-### 1 — Token al
-
-Noteflow uygulamasını aç → **Ayarlar → Geliştirici** → **API Token Kopyala** butonuna bas.
-
-Token, hesabına özel bir anahtar. Kimseyle paylaşma.
-
----
-
-### 2 — Claude Desktop'a ekle
-
-`~/Library/Application Support/Claude/claude_desktop_config.json` dosyasını aç
-(Windows'ta `%APPDATA%\Claude\claude_desktop_config.json`) ve şunu ekle:
+`~/Library/Application Support/Claude/claude_desktop_config.json` dosyasına ekle:
 
 ```json
 {
@@ -51,58 +72,9 @@ Token, hesabına özel bir anahtar. Kimseyle paylaşma.
 }
 ```
 
-Dosyayı kaydet, **Claude Desktop'ı yeniden başlat**.
+Token almak için: Noteflow uygulaması → **Ayarlar → Geliştirici → API Token Kopyala**
 
----
-
-### 3 — Dene
-
-Claude'a sor:
-
-> *"Noteflow'daki son 5 notumu göster"*
-
-Çalışıyorsa Claude notlarını listeleyecek.
-
----
-
-## Cursor
-
-`.cursor/mcp.json` dosyasına ekle:
-
-```json
-{
-  "mcpServers": {
-    "noteflow": {
-      "command": "npx",
-      "args": ["-y", "noteflow-mcp"],
-      "env": {
-        "NOTEFLOW_TOKEN": "buraya_tokenini_yapıştır"
-      }
-    }
-  }
-}
-```
-
----
-
-## VS Code (GitHub Copilot)
-
-`.vscode/mcp.json` dosyasına ekle:
-
-```json
-{
-  "servers": {
-    "noteflow": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "noteflow-mcp"],
-      "env": {
-        "NOTEFLOW_TOKEN": "buraya_tokenini_yapıştır"
-      }
-    }
-  }
-}
-```
+Diğer araçlar için → [Claude Code](claude-code.md)
 
 ---
 
@@ -124,10 +96,10 @@ Tüm özelliklerin listesi → [Feature Flags](feature-flags.md)
 ## Sorun giderme
 
 **Token hatası alıyorum**
-Noteflow uygulamasında oturumunu kapat ve tekrar giriş yap, sonra yeni token kopyala.
+Noteflow uygulamasında oturumu kapat ve tekrar giriş yap, yeni token kopyala.
 
 **Claude araçları görmüyor**
-Config dosyasını kaydedip Claude Desktop'ı tamamen kapatıp yeniden aç.
+Config dosyasını kaydedip uygulamayı tamamen kapatıp yeniden aç.
 
 **Sadece bazı araçları görmek istiyorum**
 `NOTEFLOW_FEATURES` ile istediğin araçları seçebilirsin → [Feature Flags](feature-flags.md)
