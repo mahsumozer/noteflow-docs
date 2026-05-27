@@ -1,6 +1,37 @@
 # Araçlar
 
-Noteflow MCP, 25 araç sunar. Hepsi `NOTEFLOW_FEATURES` ile seçilebilir.
+Noteflow MCP, 28 araç sunar. Hepsi `NOTEFLOW_FEATURES` ile seçilebilir.
+
+---
+
+## Memory & Context
+
+Yapay zekaların proje hafızasını yönetmesi için araçlar. AI'lar arası bilgi sürekliliği sağlar.
+
+**`noteflow_get_current_project_context`**
+Bulunduğun workspace'i tespit eder (`.noteflow/project.json` veya `~/.noteflow/workspaces.json`), bağlı Noteflow projesini döner. Her session başında çağrılmalı.
+
+**`noteflow_list_memory_commits`**
+Projenin geçmiş memory commit'lerini listeler. Yeni bir işe başlamadan önce çağır — ne yapıldığını, neden yapıldığını öğren.
+
+**`noteflow_create_memory_commit`**
+Tamamlanan işi kaydet: başlık, özet, kararlar, nedenler, etkilenen dosyalar, taglar.
+
+Git diff otomatik capture edilir — commit sırasında `git diff` çekilir, Firebase Storage'a yüklenir. Noteflow web uygulamasının **Memory** sekmesinde GitHub Desktop tarzı diff viewer'da görünür.
+
+```json
+{
+  "title": "Add SafetyValidator before hardware write",
+  "summary": "Invalid joint commands were reaching the bridge without validation.",
+  "decisions": ["Validate before write, not after"],
+  "reasons": ["Hardware safety — bad commands caused motor stalls"],
+  "affectedFiles": ["src/bridge/hardware_bridge.py"],
+  "tags": ["safety", "breaking-change"],
+  "status": "approved"
+}
+```
+
+`codeEvolution` alanı otomatik doldurulur — elle geçmene gerek yok.
 
 ---
 
