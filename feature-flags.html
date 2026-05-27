@@ -32,7 +32,6 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -40,16 +39,14 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=a2693998"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'feature-flags';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Using with Claude Code" href="claude-code.html" />
+    <link rel="next" title="Claude Code CLI ile Kullanım" href="claude-code.html" />
     <link rel="prev" title="Araçlar" href="tools/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -144,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Noteflow MCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Araçlar</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Feature Flags</a></li>
-<li class="toctree-l1"><a class="reference internal" href="claude-code.html">Using with Claude Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="claude-code.html">Claude Code CLI ile Kullanım</a></li>
 </ul>
 
     </div>
@@ -286,17 +283,17 @@
         <div id="jb-print-toc">
             
             <div>
-                <h2> On this page </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hazir-profiller">Preset Profiles</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-okuma-onerilen-baslangic">Read-only (recommended starting point)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tam-erisim">Full access</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-not-al">Note-taking only</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hazir-profiller">Hazır Profiller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-okuma-onerilen-baslangic">Sadece okuma (önerilen başlangıç)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tam-erisim">Tam erişim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-not-al">Sadece not al</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tum-bayraklar">All Flags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tum-bayraklar">Tüm Bayraklar</a></li>
 </ul>
             </nav>
         </div>
@@ -310,27 +307,27 @@
                   
   <section id="feature-flags">
 <h1>Feature Flags<a class="headerlink" href="#feature-flags" title="Link to this heading">#</a></h1>
-<p>You control which tools are enabled using <code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code>. Default: only <code class="docutils literal notranslate"><span class="pre">notes:read</span></code>.</p>
+<p>Hangi araçların açık olduğunu <code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code> ile kontrol edersin. Varsayılan: yalnızca <code class="docutils literal notranslate"><span class="pre">notes:read</span></code>.</p>
 <hr class="docutils" />
 <section id="hazir-profiller">
-<h2>Preset Profiles<a class="headerlink" href="#hazir-profiller" title="Link to this heading">#</a></h2>
+<h2>Hazır Profiller<a class="headerlink" href="#hazir-profiller" title="Link to this heading">#</a></h2>
 <section id="sadece-okuma-onerilen-baslangic">
-<h3>Read-only (recommended starting point)<a class="headerlink" href="#sadece-okuma-onerilen-baslangic" title="Link to this heading">#</a></h3>
-<p>The AI can read your notes but cannot change anything.</p>
+<h3>Sadece okuma (önerilen başlangıç)<a class="headerlink" href="#sadece-okuma-onerilen-baslangic" title="Link to this heading">#</a></h3>
+<p>AI notlarını okur ama hiçbir şeyi değiştiremez.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTEFLOW_FEATURES</span><span class="o">=</span><span class="n">notes</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">projects</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">folders</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">tags</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">tasks</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">ai</span><span class="p">,</span><span class="n">calendar</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">voice</span><span class="p">:</span><span class="n">read</span>
 </pre></div>
 </div>
 </section>
 <section id="tam-erisim">
-<h3>Full access<a class="headerlink" href="#tam-erisim" title="Link to this heading">#</a></h3>
-<p>The AI can read and write everything.</p>
+<h3>Tam erişim<a class="headerlink" href="#tam-erisim" title="Link to this heading">#</a></h3>
+<p>AI her şeyi okuyup yazabilir.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTEFLOW_FEATURES</span><span class="o">=</span><span class="n">notes</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">notes</span><span class="p">:</span><span class="n">write</span><span class="p">,</span><span class="n">projects</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">projects</span><span class="p">:</span><span class="n">write</span><span class="p">,</span><span class="n">folders</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">folders</span><span class="p">:</span><span class="n">write</span><span class="p">,</span><span class="n">tags</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">tasks</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">tasks</span><span class="p">:</span><span class="n">write</span><span class="p">,</span><span class="n">ai</span><span class="p">,</span><span class="n">calendar</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">calendar</span><span class="p">:</span><span class="n">write</span><span class="p">,</span><span class="n">voice</span><span class="p">:</span><span class="n">read</span>
 </pre></div>
 </div>
 </section>
 <section id="sadece-not-al">
-<h3>Note-taking only<a class="headerlink" href="#sadece-not-al" title="Link to this heading">#</a></h3>
-<p>Create new notes and search.</p>
+<h3>Sadece not al<a class="headerlink" href="#sadece-not-al" title="Link to this heading">#</a></h3>
+<p>Yeni not oluştur ve ara.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTEFLOW_FEATURES</span><span class="o">=</span><span class="n">notes</span><span class="p">:</span><span class="n">read</span><span class="p">,</span><span class="n">notes</span><span class="p">:</span><span class="n">write</span>
 </pre></div>
 </div>
@@ -338,52 +335,52 @@
 </section>
 <hr class="docutils" />
 <section id="tum-bayraklar">
-<h2>All Flags<a class="headerlink" href="#tum-bayraklar" title="Link to this heading">#</a></h2>
+<h2>Tüm Bayraklar<a class="headerlink" href="#tum-bayraklar" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Flag</p></th>
-<th class="head"><p>What it enables</p></th>
+<tr class="row-odd"><th class="head"><p>Bayrak</p></th>
+<th class="head"><p>Ne açar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">notes:read</span></code></p></td>
-<td><p>List, read, and search notes</p></td>
+<td><p>Notları listele, oku, ara</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">notes:write</span></code></p></td>
-<td><p>Create, edit, and trash notes</p></td>
+<td><p>Not oluştur, düzenle, çöpe taşı</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">projects:read</span></code></p></td>
-<td><p>List and read projects</p></td>
+<td><p>Projeleri listele ve oku</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">projects:write</span></code></p></td>
-<td><p>Create and update projects</p></td>
+<td><p>Proje oluştur ve güncelle</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">folders:read</span></code></p></td>
-<td><p>List and read folders</p></td>
+<td><p>Klasörleri listele ve oku</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">folders:write</span></code></p></td>
-<td><p>Create folders</p></td>
+<td><p>Klasör oluştur</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tags:read</span></code></p></td>
-<td><p>List tags and filter by tag</p></td>
+<td><p>Etiketleri listele, etikete göre filtrele</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tasks:read</span></code></p></td>
-<td><p>List tasks</p></td>
+<td><p>Görevleri listele</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tasks:write</span></code></p></td>
-<td><p>Create and move tasks</p></td>
+<td><p>Görev oluştur ve taşı</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ai</span></code></p></td>
-<td><p>AI summary and semantic search</p></td>
+<td><p>AI özeti ve semantik arama</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">calendar:read</span></code></p></td>
-<td><p>Read calendar events</p></td>
+<td><p>Takvim etkinliklerini oku</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">calendar:write</span></code></p></td>
-<td><p>Add calendar events</p></td>
+<td><p>Takvim etkinliği ekle</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">voice:read</span></code></p></td>
-<td><p>Read voice notes and transcripts</p></td>
+<td><p>Ses notlarını ve transkriptleri oku</p></td>
 </tr>
 </tbody>
 </table>
@@ -416,7 +413,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Using with Claude Code</p>
+        <p class="prev-next-title">Claude Code CLI ile Kullanım</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -434,17 +431,17 @@
   <div class="sidebar-secondary-item"><div
     id="pst-page-navigation-heading-2"
     class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hazir-profiller">Preset Profiles</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-okuma-onerilen-baslangic">Read-only (recommended starting point)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tam-erisim">Full access</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-not-al">Note-taking only</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hazir-profiller">Hazır Profiller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-okuma-onerilen-baslangic">Sadece okuma (önerilen başlangıç)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tam-erisim">Tam erişim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sadece-not-al">Sadece not al</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tum-bayraklar">All Flags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tum-bayraklar">Tüm Bayraklar</a></li>
 </ul>
   </nav></div>
 
@@ -459,7 +456,7 @@
   <div class="footer-item">
     
 <p class="component-author">
-By Noteflow
+By Author name not set
 </p>
 
   </div>
@@ -482,9 +479,6 @@ By Noteflow
   
   <div class="footer-item">
     
-<div class="extra_footer">
-  Built with <a href='https://www.sphinx-doc.org'>Sphinx</a> using the <a href='https://sphinx-book-theme.readthedocs.io'>Book Theme</a>
-</div>
   </div>
   
 </div>

@@ -32,7 +32,6 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -40,11 +39,9 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a2693998"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tools/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -144,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Noteflow MCP</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Araçlar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../feature-flags.html">Feature Flags</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../claude-code.html">Using with Claude Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../claude-code.html">Claude Code CLI ile Kullanım</a></li>
 </ul>
 
     </div>
@@ -286,10 +283,11 @@
         <div id="jb-print-toc">
             
             <div>
-                <h2> On this page </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-context">Memory &amp; Context</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notlar-notes-read-notes-write">Notlar (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>, <code class="docutils literal notranslate"><span class="pre">notes:write</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projeler-projects-read-projects-write">Projeler (<code class="docutils literal notranslate"><span class="pre">projects:read</span></code>, <code class="docutils literal notranslate"><span class="pre">projects:write</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasorler-folders-read-folders-write">Klasörler (<code class="docutils literal notranslate"><span class="pre">folders:read</span></code>, <code class="docutils literal notranslate"><span class="pre">folders:write</span></code>)</a></li>
@@ -311,7 +309,31 @@
                   
   <section id="araclar">
 <h1>Araçlar<a class="headerlink" href="#araclar" title="Link to this heading">#</a></h1>
-<p>Noteflow MCP, 25 araç sunar. Hepsi <code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code> ile seçilebilir.</p>
+<p>Noteflow MCP, 28 araç sunar. Hepsi <code class="docutils literal notranslate"><span class="pre">NOTEFLOW_FEATURES</span></code> ile seçilebilir.</p>
+<hr class="docutils" />
+<section id="memory-context">
+<h2>Memory &amp; Context<a class="headerlink" href="#memory-context" title="Link to this heading">#</a></h2>
+<p>Yapay zekaların proje hafızasını yönetmesi için araçlar. AI’lar arası bilgi sürekliliği sağlar.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">noteflow_get_current_project_context</span></code></strong>
+Bulunduğun workspace’i tespit eder (<code class="docutils literal notranslate"><span class="pre">.noteflow/project.json</span></code> veya <code class="docutils literal notranslate"><span class="pre">~/.noteflow/workspaces.json</span></code>), bağlı Noteflow projesini döner. Her session başında çağrılmalı.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">noteflow_list_memory_commits</span></code></strong>
+Projenin geçmiş memory commit’lerini listeler. Yeni bir işe başlamadan önce çağır — ne yapıldığını, neden yapıldığını öğren.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">noteflow_create_memory_commit</span></code></strong>
+Tamamlanan işi kaydet: başlık, özet, kararlar, nedenler, etkilenen dosyalar, taglar.</p>
+<p>Git diff otomatik capture edilir — commit sırasında <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> çekilir, Firebase Storage’a yüklenir. Noteflow web uygulamasının <strong>Memory</strong> sekmesinde GitHub Desktop tarzı diff viewer’da görünür.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Add SafetyValidator before hardware write&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid joint commands were reaching the bridge without validation.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;decisions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Validate before write, not after&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;reasons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Hardware safety — bad commands caused motor stalls&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;affectedFiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;src/bridge/hardware_bridge.py&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;safety&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;breaking-change&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;approved&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">codeEvolution</span></code> alanı otomatik doldurulur — elle geçmene gerek yok.</p>
+</section>
 <hr class="docutils" />
 <section id="notlar-notes-read-notes-write">
 <h2>Notlar (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>, <code class="docutils literal notranslate"><span class="pre">notes:write</span></code>)<a class="headerlink" href="#notlar-notes-read-notes-write" title="Link to this heading">#</a></h2>
@@ -325,8 +347,7 @@
 <p><strong>Örnek promptlar:</strong></p>
 <blockquote>
 <div><p><em>“Bu hafta oluşturduğum notları göster”</em>
-<em>“‘fikir’ etiketli tüm notlarımı listele”</em>
-<em>“API entegrasyonu hakkında yeni bir not oluştur”</em></p>
+<em>“‘fikir’ etiketli tüm notlarımı listele”</em></p>
 </div></blockquote>
 </section>
 <hr class="docutils" />
@@ -339,21 +360,11 @@
 <li><p>Proje detaylarını ve sütunlarını gör</p></li>
 <li><p>Yeni proje oluştur, güncelle</p></li>
 </ul>
-<p><strong>Örnek promptlar:</strong></p>
-<blockquote>
-<div><p><em>“Aktif projelerimi göster”</em>
-<em>“‘Mobile App’ projesinin detaylarını getir”</em></p>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="klasorler-folders-read-folders-write">
 <h2>Klasörler (<code class="docutils literal notranslate"><span class="pre">folders:read</span></code>, <code class="docutils literal notranslate"><span class="pre">folders:write</span></code>)<a class="headerlink" href="#klasorler-folders-read-folders-write" title="Link to this heading">#</a></h2>
 <p>Proje içindeki klasör hiyerarşisi.</p>
-<p><strong>Yapabileceklerin:</strong></p>
-<ul class="simple">
-<li><p>Klasörleri listele ve içeriklerini gör</p></li>
-<li><p>Yeni klasör oluştur</p></li>
-</ul>
 </section>
 <hr class="docutils" />
 <section id="etiketler-tags-read">
@@ -363,11 +374,6 @@
 <li><p>Tüm etiketleri listele</p></li>
 <li><p>Belirli bir etikete sahip notları bul</p></li>
 </ul>
-<p><strong>Örnek promptlar:</strong></p>
-<blockquote>
-<div><p><em>“Hangi etiketlerim var?”</em>
-<em>“‘tasarım’ etiketli notlarımı listele”</em></p>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="gorevler-tasks-read-tasks-write">
@@ -379,31 +385,19 @@
 <li><p>Yeni görev oluştur</p></li>
 <li><p>Görevi farklı sütuna taşı</p></li>
 </ul>
-<p><strong>Örnek promptlar:</strong></p>
-<blockquote>
-<div><p><em>“Yapılacaklar sütunundaki görevleri göster”</em>
-<em>“‘Backend fix’ görevini Tamamlandı sütununa taşı”</em></p>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="ai-ai">
 <h2>AI (<code class="docutils literal notranslate"><span class="pre">ai</span></code>)<a class="headerlink" href="#ai-ai" title="Link to this heading">#</a></h2>
-<p>Noteflow’un AI özelliklerini kullan.</p>
 <p><strong>Yapabileceklerin:</strong></p>
 <ul class="simple">
 <li><p>Bir notun AI özetini al</p></li>
-<li><p>Semantik benzerlik araması yap (anlamsal, anahtar kelime değil)</p></li>
+<li><p>Semantik benzerlik araması yap</p></li>
 </ul>
-<p><strong>Örnek promptlar:</strong></p>
-<blockquote>
-<div><p><em>“Bu notu özetle”</em>
-<em>“‘async programming’ ile ilgili notlarımı bul”</em></p>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="takvim-calendar-read-calendar-write">
 <h2>Takvim (<code class="docutils literal notranslate"><span class="pre">calendar:read</span></code>, <code class="docutils literal notranslate"><span class="pre">calendar:write</span></code>)<a class="headerlink" href="#takvim-calendar-read-calendar-write" title="Link to this heading">#</a></h2>
-<p>Takvim tipindeki notlardaki etkinlikler.</p>
 <p><strong>Yapabileceklerin:</strong></p>
 <ul class="simple">
 <li><p>Takvim notlarındaki etkinlikleri listele</p></li>
@@ -418,11 +412,6 @@
 <li><p>Ses kayıtlarını listele</p></li>
 <li><p>Transkripti olan notların içeriğini oku</p></li>
 </ul>
-<p><strong>Örnek promptlar:</strong></p>
-<blockquote>
-<div><p><em>“Ses notlarımı listele”</em>
-<em>“API tasarımı hakkında konuştuğum ses kaydını bul”</em></p>
-</div></blockquote>
 </section>
 </section>
 
@@ -469,10 +458,11 @@
   <div class="sidebar-secondary-item"><div
     id="pst-page-navigation-heading-2"
     class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-context">Memory &amp; Context</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notlar-notes-read-notes-write">Notlar (<code class="docutils literal notranslate"><span class="pre">notes:read</span></code>, <code class="docutils literal notranslate"><span class="pre">notes:write</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projeler-projects-read-projects-write">Projeler (<code class="docutils literal notranslate"><span class="pre">projects:read</span></code>, <code class="docutils literal notranslate"><span class="pre">projects:write</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasorler-folders-read-folders-write">Klasörler (<code class="docutils literal notranslate"><span class="pre">folders:read</span></code>, <code class="docutils literal notranslate"><span class="pre">folders:write</span></code>)</a></li>
@@ -495,7 +485,7 @@
   <div class="footer-item">
     
 <p class="component-author">
-By Noteflow
+By Author name not set
 </p>
 
   </div>
@@ -518,9 +508,6 @@ By Noteflow
   
   <div class="footer-item">
     
-<div class="extra_footer">
-  Built with <a href='https://www.sphinx-doc.org'>Sphinx</a> using the <a href='https://sphinx-book-theme.readthedocs.io'>Book Theme</a>
-</div>
   </div>
   
 </div>
